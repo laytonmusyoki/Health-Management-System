@@ -2,6 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//online patients
+
+
+
+//receptionist
+
+
+
+//doctor
+
+
+
+//pharmacist
+
+
+
+//store
+
+
+
+
+//web
