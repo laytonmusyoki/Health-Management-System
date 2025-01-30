@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
+//lab
+
+
+
 //pharmacist
 
 
 
 //store
-
 
 
 
