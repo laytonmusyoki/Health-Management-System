@@ -26,7 +26,7 @@
                 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="card">
                         <h2 class="text-center">Login</h2>
-                        <form method="POST" action="" class="w-100">
+                        <form method="POST" action="{{route('loginpost')}}" class="w-100">
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
