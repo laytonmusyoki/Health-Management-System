@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 //online patients
@@ -27,3 +28,10 @@ use Illuminate\Support\Facades\Route;
 
 
 //web
+
+// auth routes
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/otp',[AuthController::class,'otp'])->name('otp');
+Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
+Route::get('/setnewpassword',[AuthController::class,'setnewpassword'])->name('setnewpassword');

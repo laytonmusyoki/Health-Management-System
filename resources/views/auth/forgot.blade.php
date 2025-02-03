@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Forgot password</title>
     <link rel="stylesheet" href="{{ asset('auth/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -15,8 +15,10 @@
                 <!-- This will be hidden on small screens -->
                 <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-center p-5 bg-light">
                     <div class="about">
-                    <h2>Welcome to Our Health Management System</h2>
-                    <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
+                    <h2>Don't worry about emergency we got you covered</h2>
+                    <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.
+                        <br> and incase of emergency,contact us
+                    </p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
                 
                     </div>
@@ -24,26 +26,19 @@
 
                 <!-- This will be visible on small screens only -->
                 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
-                    <div class="card">
-                        <h2 class="text-center">Login</h2>
+                    <div class="card" style="height: auto">
+                        <div class="text-center">
+                            <img src="{{ asset('auth/images/forgotpassword.jpeg') }}" alt="Forgot Password" class="img-fluid" style="width:150px ;heigth:150px;">
+                        </div>
                         <form method="POST" action="" class="w-100">
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
-                                <input type="text" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="">Password</label>
-                                <input type="password" name="password" id="password" placeholder="Password" required>
-                            </div>
-                            <div class="check">
-                                <input type="checkbox" class="form-check-input" id="showPassword">
-                                <label for="" class="form-check-label">Show password</label>
-                                <a href="{{ route('forgot') }}" style="float: right">Forgot password ?</a>
+                                <input type="text" name="email" placeholder="Enter your email" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary w-100">Sign up</button>
-                                <p class="mt-3">Don't have an account? <a href="{{ route('register') }}">Register</a></p>
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                <p><a href="{{ route('login')}}">Back to signin</a></p>
                             </div>
                         </form>
                     </div>
