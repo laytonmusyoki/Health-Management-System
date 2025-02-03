@@ -37,6 +37,7 @@ Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin')
 
 // auth routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/otp',[AuthController::class,'otp'])->name('otp');
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
