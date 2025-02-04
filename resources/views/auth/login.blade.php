@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="{{ asset('auth/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -30,11 +31,11 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
-                                <input type="text" name="email" placeholder="Email" required>
+                                <input type="text" name="email" placeholder="Email" >
                             </div>
                             <div class="mb-3">
                                 <label for="">Password</label>
-                                <input type="password" name="password" id="password" placeholder="Password" required>
+                                <input type="password" name="password" id="password" placeholder="Password" >
                             </div>
                             <div class="check">
                                 <input type="checkbox" class="form-check-input" id="showPassword">
@@ -42,7 +43,7 @@
                                 <a href="{{ route('forgot') }}" style="float: right">Forgot password ?</a>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary w-100">Sign up</button>
+                                <button type="submit" class="btn btn-primary w-100">Sign In</button>
                                 <p class="mt-3">Don't have an account? <a href="{{ route('register') }}">Register</a></p>
                             </div>
                         </form>
@@ -52,5 +53,8 @@
         </div>
         <script src="{{ asset('auth/script.js') }}"></script>
     </div>
+
+<x-sweet-alert/>
+
 </body>
 </html>
