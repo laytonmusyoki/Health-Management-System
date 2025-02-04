@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Forgot password</title>
     <link rel="stylesheet" href="{{ asset('auth/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -30,7 +31,7 @@
                         <div class="text-center">
                             <img src="{{ asset('auth/images/forgotpassword.jpeg') }}" alt="Forgot Password" class="img-fluid" style="width:150px ;heigth:150px;">
                         </div>
-                        <form method="POST" action="" class="w-100">
+                        <form method="POST" action="{{route('forgotpost')}}" class="w-100">
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
@@ -47,5 +48,6 @@
         </div>
         <script src="{{ asset('auth/script.js') }}"></script>
     </div>
+    <x-sweet-alert/>
 </body>
 </html>

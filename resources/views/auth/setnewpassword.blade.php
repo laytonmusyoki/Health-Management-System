@@ -25,7 +25,7 @@
                 <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
                     <div class="card">
                         <h2 class="text-center">Set new password</h2>
-                        <form method="POST" action="{{ route('register') }}" class="w-100">
+                        <form method="post" action="{{ route('reset',$token) }}" class="w-100">
                             @csrf
                             <div class="mb-3">
                                 <label for="password">Enter New Password</label>

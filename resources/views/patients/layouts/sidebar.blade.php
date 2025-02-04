@@ -15,15 +15,15 @@
         <!--navigation-->
         <ul class="metismenu" id="sidenav">
           <li>
-            <a href="">
+            <a href="{{ route('dashboard') }}">
               <div class="parent-icon"><i class="material-icons-outlined">dashboard</i>
               </div>
               <div class="menu-title">Dashboard</div>
             </a>
           </li>
           
-          <li>
-            <a href="javascript:;" class="has-arrow">
+          <!-- <li>
+            <a href="" class="has-arrow">
               <div class="parent-icon"><i class="material-icons-outlined">home</i>
               </div>
               <div class="menu-title">User & Permissions</div>
@@ -34,14 +34,14 @@
               <li><a href=""><i class="material-icons-outlined">arrow_right</i>Manage Roles</a>
               </li>
             </ul>
-          </li>
+          </li> -->
           
           
           <li>
-            <a href="">
+            <a href="{{ route('profile') }}">
               <div class="parent-icon"><i class="material-icons-outlined">person</i>
               </div>
-              <div class="menu-title">Manage Application</div>
+              <div class="menu-title">My Profile</div>
             </a>
           </li>
           {{-- <li class="menu-label">UI Elements</li>
