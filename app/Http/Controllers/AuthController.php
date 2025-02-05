@@ -54,7 +54,7 @@ class AuthController extends Controller
             if(Carbon::now()->subMinutes(5)<$otpExist->createdAt){
                 $otpExist->isVerified = 1;
                 $otpExist->save();
-                return redirect(route('dashboard'))->with('success','Account has been verified ');
+                return redirect(route('dashboard'));
             }
             else{
                 return back()->with('error','Otp has expired');
@@ -76,7 +76,7 @@ class AuthController extends Controller
         $user->expiryTime = $expiry;
         $user->save();
         Mail::to($user->email)->send(new OtpMail($otp));
-        return redirect(route('otp'))->with('success','Anew otp has been sent to your email');
+        return redirect(route('otp'))->with('success','A new code sent to email');
     }
 
     public function login(){
@@ -95,7 +95,19 @@ class AuthController extends Controller
         if($emailExist){
             if(Hash::check($request->password , $emailExist->password)){
                 auth()->login($emailExist);
-                 return redirect(route('dashboard'));
+                if($emailExist->otp_enabled==1){
+                    $otp = random_int(100000, 999999);
+                    $created = Carbon::now();
+                    $expiryTime = Carbon::now()->addMinutes(5);
+        
+                    $emailExist->otp = $otp;
+                    $emailExist->createdAt = $created;
+                    $emailExist->expiryTime = $expiryTime;
+                    $emailExist->save();
+                    Mail::to($emailExist->email)->send(new OtpMail($otp));
+                    return redirect(route('otp'))->with('success','Two factor authentication code sent to account');
+                }
+                return redirect(route('dashboard'));
             }
             else{
                 return back()->with('error','Incorrect password');
