@@ -49,9 +49,9 @@ Route::get('/otp',[AuthController::class,'otp'])->name('otp');
 Route::post('/otppost',[AuthController::class,'otppost'])->name('otppost');
 Route::get('/resend',[AuthController::class,'resend'])->name('resend');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-Route::middleware(['otpenabled'])->group(function(){
-    Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
-});
+// Route::middleware(['otpenabled'])->group(function(){
+Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
+// });
 Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
 Route::post('/forgotpost',[AuthController::class,'forgotpost'])->name('forgotpost');
