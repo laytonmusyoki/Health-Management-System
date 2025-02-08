@@ -1,0 +1,49 @@
+{
+    "modules":[
+        {
+            "route":"admin.doctor",
+            "name":"Registration",
+            "image":"user.png"
+        },
+        {
+            "route":"admin.triage",
+            "name":"Triage",
+            "image":"triage.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Clinician",
+            "image":"clinician.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Drug Prescription",
+            "image":"pills.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Lab",
+            "image":"microscope.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Billing",
+            "image":"bill.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"HIV Testing",
+            "image":"test.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Ward",
+            "image":"ward.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Procedure room",
+            "image":"ward.png"
+        }
+    ]
+}
