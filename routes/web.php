@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 //online patients
 Route::get('/user/patient',[PatientController::class,'index'])->name('user.patient');
