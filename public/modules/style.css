@@ -1,0 +1,36 @@
+.card-row{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    gap: 5px;
+}
+
+.card-col .card{
+    width: 170px;
+    height: auto;
+}
+@media (max-width: 768px){
+    .card-row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    body,html{
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+}
+.custom .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.custom h6{
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    font-weight: bold;
+}

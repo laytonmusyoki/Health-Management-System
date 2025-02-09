@@ -4,15 +4,23 @@
 
 @section('content')
 
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">  
-    
-        Dashboard
-        
+
+<div class="card-row">
+    @foreach ($modules as $module)
+    <div class="card-col">
+        <div class="card">
+            <a href="">
+                <div class="card-body custom">
+                    <div class="image">
+                        <img src="{{asset('images/'.$module['image'])}}" width="50" class="img-fluid" alt="">
+                    </div>
+                    <h6 class="card-title">{{$module['name']}}</h6>
+                </div>
+            </a>
+        </div>
     </div>
-
-
-
+    @endforeach
 </div>
+
     
 @endsection

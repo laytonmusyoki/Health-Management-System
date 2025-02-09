@@ -27,6 +27,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="{{ asset('modules/style.css') }}">
   
 </head>
 
