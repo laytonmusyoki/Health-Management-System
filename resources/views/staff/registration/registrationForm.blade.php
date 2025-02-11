@@ -1,0 +1,165 @@
+@extends('staff.app')
+@section('title','Registration')
+@section('content')
+
+<form action="{{route('registrationFormPost')}}" method="post">
+    @php
+    use App\Models\County;
+    use App\Models\SubCounty;
+    $counties = County::all();
+    $subCounties = SubCounty::all();
+    @endphp
+@csrf
+    <div class="row">
+        <div class="col-lg-4"> 
+            <div class="mb-3">
+                <label for="idNo" class="form-label">Id Number</label>
+                <input class="form-control" type="text" name="idNo" placeholder="Enter your Id No">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="surName" class="form-label">SurName</label>
+                <input class="form-control" type="text" name="surName" placeholder="Enter your surname">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input class="form-control" type="text" name="firstName" placeholder="Enter your first name">
+            </div>
+        </div> 
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="secondName" class="form-label">Second Name</label>
+                <input class="form-control" type="text" name="secondName" placeholder="Enter your second name">
+            </div>
+        </div> 
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-select" name="gender">
+                    <option value="" selected disabled> Choose gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                <input class="form-control" type="date" name="dateOfBirth">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input class="form-control" type="text" name="age" placeholder="Enter your age">
+            </div>
+        </div>
+        <div class="col-lg-4"> 
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input class="form-control" type="text" name="phoneNumber" placeholder="Enter your phone number">
+        </div>
+        </div> 
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="secondName" class="form-label">Next of Kin</label>
+                <input class="form-control" type="text" name="nextOfKin" placeholder="Enter your next of kin name">
+            </div>
+        </div>  
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="country" class="form-check-label">Country</label>
+                <select class="form-select" name="country">
+                    <option value="" selected disabled> Choose country</option>
+                    <option value="Kenya">Kenya</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="county" class="form-label">County</label>
+                <select name="county" class="form-select" id="countyId">
+                    <option value="" selected disabled>Choose County</option>
+                    @foreach ($counties as $county )
+                    <option value="{{$county->code}}">{{$county->name}}</option>
+                    @endforeach  
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="subCounty" class="form-label">Sub County</label>
+                <select name="subCounty" class="form-select" id="subCountyId">
+                    <option value="" disabled selected>Choose subCounty</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input class="form-control" type="text" name="location" placeholder="Enter your location">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="country" class="form-check-label">Occupation level</label>
+                <select class="form-select" name="occupation">
+                    <option value="" selected disabled> Choose occupation level</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="country" class="form-check-label">Marital Status</label>
+                <select class="form-select" name="maritalStatus">
+                    <option value="" selected disabled> Choose Marital Status</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="single">Single</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="country" class="form-check-label">Education level</label>
+                <select class="form-select" name="education">
+                    <option value="" selected disabled> Choose education level</option>
+                    <option value="Primary level">Primary level</option>
+                    <option value="Secondary level">Secondary level</option>
+                    <option value="University or College level">University or College level</option>
+                </select>
+            </div>
+        </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </div>
+</form>
+<script>
+const County = document.getElementById('countyId');
+County.addEventListener('change', function() {
+    const countyId = County.value; 
+    const SubCounty = document.getElementById('subCountyId');
+    
+    SubCounty.innerHTML = '<option value="" disabled selected>Select Subcounty</option>';
+
+    fetch(`/get/subcounties/${countyId}`)
+        .then(response => response.json())
+        .then(data => {
+            data.subcounties.forEach(subcounty => {
+                const option = document.createElement('option');
+                option.value = subcounty.id;
+                option.textContent = subcounty.name;
+                SubCounty.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching subcounties:', error));
+});
+</script>
+@endsection

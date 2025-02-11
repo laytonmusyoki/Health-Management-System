@@ -9,7 +9,7 @@
     @foreach ($modules as $module)
     <div class="card-col">
         <div class="card">
-            <a href="">
+            <a href="{{$module['route']}}">
                 <div class="card-body custom">
                     <div class="image">
                         <img src="{{asset('images/'.$module['image'])}}" width="50" class="img-fluid" alt="">
