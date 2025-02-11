@@ -4,7 +4,7 @@
 The body of your message.
 
 <x-mail::button :url="route('setnewpassword',['token'=>$token])">
-Button Text
+Click here to reset
 </x-mail::button>
 
 Thanks,<br>
