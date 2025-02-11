@@ -41,7 +41,7 @@
                     <tbody>
                         @foreach($users as $item)
                         <tr>
-                            <td>{{ $item->username ?? 'N/A' }} {{ $item->last_name ?? 'N/A' }}</td>
+                            <td>{{ $item->name ?? 'N/A' }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
                                 @foreach($item->roles as $role)
