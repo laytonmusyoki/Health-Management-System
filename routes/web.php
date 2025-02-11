@@ -4,6 +4,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterFormController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
