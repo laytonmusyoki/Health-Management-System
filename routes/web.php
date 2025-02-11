@@ -14,7 +14,15 @@ Route::get('/user/patient',[PatientController::class,'index'])->name('user.patie
 
 
 // staff configurations
-Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
+
+Route::group(['middleware' => ['auth','role']], function () {
+    Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
+});
+
+
+
+
+
 Route::resource('admin/roles/delete', RolesController::class)->names('roles');
     Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
     Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
@@ -61,7 +69,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 // Route::middleware(['otpenabled'])->group(function(){
 Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
 // });
-Route::group(['middleware' => ['auth','role']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 });
 

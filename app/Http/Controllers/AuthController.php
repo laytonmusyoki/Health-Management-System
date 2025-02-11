@@ -107,7 +107,10 @@ class AuthController extends Controller
                     Mail::to($emailExist->email)->send(new OtpMail($otp));
                     return redirect(route('otp'))->with('success','Two factor authentication code sent to account');
                 }
-                return redirect(route('dashboard'));
+                if($emailExist->role=='patient'){
+                    return redirect(route('dashboard'));
+                }
+                return redirect(route('staff.admin'));
             }
             else{
                 return back()->with('error','Incorrect password');
