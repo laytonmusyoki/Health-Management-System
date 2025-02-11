@@ -15,13 +15,36 @@
         <!--navigation-->
         <ul class="metismenu" id="sidenav">
           <li>
-            <a href="">
+            <a href="{{ route('staff.admin') }}">
               <div class="parent-icon"><i class="material-icons-outlined">dashboard</i>
               </div>
               <div class="menu-title">Dashboard</div>
             </a>
           </li>
-          
+          <li>
+            <a href="javascript:;" class="has-arrow">
+              <div class="parent-icon"><i class="material-icons-outlined">home</i>
+              </div>
+              <div class="menu-title">Roles & Permissions</div>
+            </a>
+            <ul>
+              <li>
+                <a href="{{ route('roles.index') }}"><i class="material-icons-outlined">arrow_right</i>Roles
+                <span class="badge bg-info ml-2">{{ \Spatie\Permission\Models\Role::count() }}</span></a>
+              </a>
+                </li>
+                <li>
+                <a href="{{ route('permissions.index') }}"><i class="material-icons-outlined">arrow_right</i>Permissions
+                <span class="badge bg-info ml-2">{{ \Spatie\Permission\Models\Permission::count() }}</span></a>
+              </a>
+                </li>
+                <li>
+                  <a href="{{ route('users.index') }}"><i class="material-icons-outlined">arrow_right</i>Users
+                  <span class="badge bg-info ml-2">{{ \App\Models\User::count() }}</span></a>
+                </a>
+                  </li>
+            </ul>
+          </li>
           
           
           

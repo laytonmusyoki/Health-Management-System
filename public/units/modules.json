@@ -44,6 +44,11 @@
             "route":"admin.lab",
             "name":"Procedure room",
             "image":"ward.png"
+        },
+        {
+            "route":"admin.lab",
+            "name":"Procedure room",
+            "image":"ward.png"
         }
     ]
 }

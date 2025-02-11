@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -12,7 +15,11 @@ Route::get('/user/patient',[PatientController::class,'index'])->name('user.patie
 
 // staff configurations
 Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
-
+Route::resource('admin/roles/delete', RolesController::class)->names('roles');
+    Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
+    Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
+    Route::delete('admin/permissions/delete/{id}', [PermissionsController::class, 'destroy'])->name('permissions.delete');
+    Route::resource('admin/users', UserController::class)->names('users');
 
 //receptionist
 
