@@ -22,10 +22,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
         'otp',
         'createdAt',
         'expiryTime',
         'isVerified',
+        
     ];
 
     /**

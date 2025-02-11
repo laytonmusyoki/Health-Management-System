@@ -3,7 +3,7 @@
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RolesController;
+use App\Http\Controllers\RegisterFormController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +22,11 @@ Route::resource('admin/roles/delete', RolesController::class)->names('roles');
     Route::resource('admin/users', UserController::class)->names('users');
 
 //receptionist
-
-
-
+Route::get('/registration',[RegisterFormController::class,'registration'])->name('registration');
+Route::get('/find',[RegisterFormController::class,'find'])->name('find');
+Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
+Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');
+Route::get('/get/subcounties/{id}',[RegisterFormController::class,'data'])->name('data');
 //doctor
 
 
@@ -59,7 +61,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 // Route::middleware(['otpenabled'])->group(function(){
 Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
 // });
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','role']], function () {
     Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
 });
 
