@@ -15,7 +15,7 @@ class StaffCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user()->role;
+        $user = \Illuminate\Support\Facades\Auth::user()->role;
         if($user=='patient'){
             return redirect(route('dashboard'));
         }
