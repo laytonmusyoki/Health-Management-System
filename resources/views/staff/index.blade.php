@@ -6,7 +6,7 @@
 
 
 <div class="card-row">
-    @foreach ($modules as $module)
+    @foreach ($filteredModules as $module)
     <div class="card-col">
         <div class="card">
             <a href="{{$module['route']}}">

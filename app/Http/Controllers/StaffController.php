@@ -10,13 +10,15 @@ class StaffController extends Controller
     public $all_modules;
     //
     public function index(){
-        $json = file_get_contents(base_path('/public/units/modules.json'));
-        $json = json_decode($json, true);
-        if (isset($json['modules'])) {
-            $modules = $json['modules']; 
-        } else {
-            $modules = []; 
-        }
-    return view('staff.index', compact('modules'));      
+        $userPermissions = auth()->user()->getAllPermissions()->pluck('name');
+        $modulesData = json_decode(file_get_contents(base_path('/public/units/modules.json')), true);
+        $modules = $modulesData['modules'];
+
+        // here we are filtering modules based on user permissions
+        $filteredModules = array_filter($modules, function($module) use($userPermissions) {
+            return isset($module['permission']) && $userPermissions->contains($module['permission']);
+        });
+
+        return view('staff.index', compact('filteredModules'));
     }
 }

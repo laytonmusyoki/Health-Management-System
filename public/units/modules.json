@@ -1,53 +1,57 @@
 {
     "modules":[
         {
+            "permission":"Registration",
             "route":"/registration",
             "name":"Registration",
             "image":"user.png"
         },
         {
+            "permission":"Triage",
             "route":"admin.triage",
             "name":"Triage",
             "image":"triage.png"
         },
         {
-            "route":"admin.lab",
+            "permission":"Clinician",
+            "route":"admin.clinician",
             "name":"Clinician",
             "image":"clinician.png"
         },
         {
-            "route":"admin.lab",
+            "permission":"Drug Prescription",
+            "route":"admin.prescription",
             "name":"Drug Prescription",
             "image":"pills.png"
         },
         {
+            "permission":"Lab",
             "route":"admin.lab",
             "name":"Lab",
             "image":"microscope.png"
         },
         {
+            "permission":"Billing",
             "route":"admin.lab",
             "name":"Billing",
             "image":"bill.png"
         },
         {
+            "permission":"HIV Testing",
             "route":"admin.lab",
             "name":"HIV Testing",
             "image":"test.png"
         },
         {
+            "permission":"Ward",
             "route":"admin.lab",
             "name":"Ward",
             "image":"ward.png"
         },
         {
+            "permission":"Procedure Room",
             "route":"admin.lab",
-            "name":"Procedure room",
-            "image":"ward.png"
-        },
-        {
-            "route":"admin.lab",
-            "name":"Procedure room",
+            "name":"Procedure Room",
             "image":"ward.png"
         }
     ]

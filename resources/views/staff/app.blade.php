@@ -249,24 +249,34 @@
 
 
  
-  <!--bootstrap js-->
-  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+<!--bootstrap js-->
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-  <!--plugins-->
-  <script src="/assets/js/jquery.min.js"></script>
-  <!--plugins-->
-  <script src="/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-  <script src="/assets/plugins/metismenu/metisMenu.min.js"></script>
-  <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
-  <script src="/assets/js/index.js"></script>
-  <script src="/assets/plugins/peity/jquery.peity.min.js"></script>
-  <script>
+<!--plugins-->
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<!--plugins-->
+<script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('assets/plugins/metismenu/metisMenu.min.js') }}"></script>
+<!-- <script src="{{ asset('assets/plugins/apexchart/apexcharts.min.js') }}"></script> -->
+<script src="{{ asset('assets/js/index.js') }}"></script>
+<script src="{{ asset('assets/plugins/peity/jquery.peity.min.js') }}"></script>
+<script>
     $(".data-attributes span").peity("donut")
-  </script>
-  <script src="/assets/plugins/simplebar/js/simplebar.min.js"></script>
-  <script src="/assets/js/main.js"></script>
-
-
+</script>
+<script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<!-- editor -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
+	</script>
 
   <script>
 		$(document).ready(function() {
@@ -308,6 +318,10 @@
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
+
+<script>
+  $(".data-attributes span").peity("donut")
+</script>
 
 <x-sweet-alert />
 

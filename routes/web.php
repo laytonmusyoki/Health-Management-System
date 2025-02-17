@@ -60,7 +60,7 @@ Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('/user/twoStep',[ProfileController::class,'twoStep'])->name('2step.upate');
 Route::post('/profile/update',[ProfileController::class,'updateProfile'])->name('profile.update');
 Route::post('/profile/updatepassword',[ProfileController::class,'updatepassword'])->name('profile.updatepassword');
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/registerpost',[AuthController::class,'registerpost'])->name('registerpost');
 Route::get('/otp',[AuthController::class,'otp'])->name('otp');
