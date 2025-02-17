@@ -54,6 +54,9 @@ class AuthController extends Controller
             if(Carbon::now()->subMinutes(5)<$otpExist->createdAt){
                 $otpExist->isVerified = 1;
                 $otpExist->save();
+                if(auth()->user()->role=='staff'){
+                    return redirect(route('staff.admin'));
+                }
                 return redirect(route('dashboard'));
             }
             else{
@@ -105,12 +108,12 @@ class AuthController extends Controller
                     $emailExist->expiryTime = $expiryTime;
                     $emailExist->save();
                     Mail::to($emailExist->email)->send(new OtpMail($otp));
-                    return redirect(route('otp'))->with('success','Two factor authentication code sent to account');
+                    return redirect(route('otp'))->with('success','Two factor authentication code has been sent to account');
                 }
-                if($emailExist->role=='patient'){
-                    return redirect(route('dashboard'));
+                if($emailExist->role=='staff'){
+                    return redirect(route('staff.admin'));
                 }
-                return redirect(route('staff.admin'));
+                return redirect(route('dashboard'));
             }
             else{
                 return back()->with('error','Incorrect password');

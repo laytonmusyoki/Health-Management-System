@@ -21,6 +21,7 @@
               <div class="menu-title">Dashboard</div>
             </a>
           </li>
+          @if(auth()->user()->hasRole('Super Admin'))
           <li>
             <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><i class="material-icons-outlined">home</i>
@@ -45,6 +46,7 @@
                   </li>
             </ul>
           </li>
+          @endif
           
           
           

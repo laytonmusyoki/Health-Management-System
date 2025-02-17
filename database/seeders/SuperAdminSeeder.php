@@ -22,6 +22,7 @@ class SuperAdminSeeder extends Seeder
             'otp_enabled' => false,
             'role'=>'staff'
         ]);
+        
 
         $user->assignRole('Super Admin');
     }
