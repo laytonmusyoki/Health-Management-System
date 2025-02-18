@@ -76,11 +76,7 @@ class AuthController extends Controller
         $user->expiryTime = $expiry;
         $user->save();
         Mail::to($user->email)->send(new OtpMail($otp));
-<<<<<<< HEAD
         return redirect(route('otp'))->with('success','A new code sent to email');
-=======
-        return redirect(route('otp'))->with('success','Anew otp has been sent to your email');
->>>>>>> dd9beb4 (Authentication)
     }
 
     public function login(){
@@ -99,7 +95,6 @@ class AuthController extends Controller
         if($emailExist){
             if(Hash::check($request->password , $emailExist->password)){
                 auth()->login($emailExist);
-<<<<<<< HEAD
                 if($emailExist->otp_enabled==1){
                     $otp = random_int(100000, 999999);
                     $created = Carbon::now();
@@ -112,17 +107,10 @@ class AuthController extends Controller
                     Mail::to($emailExist->email)->send(new OtpMail($otp));
                     return redirect(route('otp'))->with('success','Two factor authentication code sent to account');
                 }
-<<<<<<< HEAD
                 if($emailExist->role=='patient'){
                     return redirect(route('dashboard'));
                 }
                 return redirect(route('staff.admin'));
-=======
-                return redirect(route('dashboard'));
-=======
-                 return redirect(route('dashboard'));
->>>>>>> dd9beb4 (Authentication)
->>>>>>> bbe41dc (conflicts)
             }
             else{
                 return back()->with('error','Incorrect password');
@@ -138,10 +126,7 @@ class AuthController extends Controller
     }
 
     public function logout(){
-<<<<<<< HEAD
         auth()->logout();
-=======
->>>>>>> dd9beb4 (Authentication)z
         return redirect(route('login'));
     }
 
