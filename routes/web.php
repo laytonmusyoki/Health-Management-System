@@ -17,25 +17,32 @@ Route::get('/user/patient',[PatientController::class,'index'])->name('user.patie
 // staff configurations
 
 Route::group(['middleware' => ['auth','role']], function () {
+    // super admin
     Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
+
+    Route::middleware(['permission'])->group(function () {
+        Route::resource('admin/roles/delete', RolesController::class)->names('roles');
+        Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
+        Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
+        Route::delete('admin/permissions/delete/{id}', [PermissionsController::class, 'destroy'])->name('permissions.delete');
+        Route::resource('admin/users', UserController::class)->names('users');
+    });
+    
+    //receptionist
+    Route::get('/registration',[RegisterFormController::class,'registration'])->name('registration');
+    Route::get('/find',[RegisterFormController::class,'find'])->name('find');
+    Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
+    Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');
+    Route::get('/get/subcounties/{id}',[RegisterFormController::class,'data'])->name('data');
+
 });
 
 
 
 
 
-Route::resource('admin/roles/delete', RolesController::class)->names('roles');
-    Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
-    Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
-    Route::delete('admin/permissions/delete/{id}', [PermissionsController::class, 'destroy'])->name('permissions.delete');
-    Route::resource('admin/users', UserController::class)->names('users');
 
-//receptionist
-Route::get('/registration',[RegisterFormController::class,'registration'])->name('registration');
-Route::get('/find',[RegisterFormController::class,'find'])->name('find');
-Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
-Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');
-Route::get('/get/subcounties/{id}',[RegisterFormController::class,'data'])->name('data');
+
 //doctor
 
 
@@ -60,7 +67,7 @@ Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('/user/twoStep',[ProfileController::class,'twoStep'])->name('2step.upate');
 Route::post('/profile/update',[ProfileController::class,'updateProfile'])->name('profile.update');
 Route::post('/profile/updatepassword',[ProfileController::class,'updatepassword'])->name('profile.updatepassword');
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/registerpost',[AuthController::class,'registerpost'])->name('registerpost');
 Route::get('/otp',[AuthController::class,'otp'])->name('otp');

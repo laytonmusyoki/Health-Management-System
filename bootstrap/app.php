@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\PermissionMiddleware;
 use App\Http\Middleware\StaffCheck;
 use App\Http\Middleware\TwoStepVerification;
 use Illuminate\Foundation\Application;
@@ -15,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
        'role'=>StaffCheck::class,
+       'permission'=>PermissionMiddleware::class,
         ]);
     })
 

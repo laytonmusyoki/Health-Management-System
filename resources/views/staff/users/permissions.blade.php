@@ -34,7 +34,7 @@
         <div class="card-body">
           <div class="product-table">
             <div class="table-responsive white-space-nowrap" style="min-height: 500px !important;">
-              <table class="table align-middle">
+              <table class="table align-middle" id="example2">
                 <thead class="table-light">
                   <tr>
                     

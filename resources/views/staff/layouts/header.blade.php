@@ -46,16 +46,16 @@
               <div class="text-center">
                 <img src="/assets/images/avatars/01.png" class="rounded-circle p-1 shadow mb-3" width="90" height="90"
                   alt="">
-                <h5 class="user-name mb-0 fw-bold">Hello, Layton</h5>
+                <h5 class="user-name mb-0 fw-bold">Hello, {{ auth()->user()->name }}</h5>
               </div>
             </a>
             <hr class="dropdown-divider">
             <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="javascript:;"><i
               class="material-icons-outlined">person_outline</i>Profile</a>
-            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href=""><i
+            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ route('staff.admin') }}"><i
               class="material-icons-outlined">dashboard</i>Dashboard</a>
             <hr class="dropdown-divider">
-            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href=""><i
+            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="{{ route('logout') }}"><i
             class="material-icons-outlined">power_settings_new</i>Logout</a>
           </div>
         </li>

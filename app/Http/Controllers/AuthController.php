@@ -6,15 +6,24 @@ use App\Mail\OtpMail;
 use App\Mail\TokenMail;
 use App\Models\Forgot;
 use App\Models\User;
+use App\Services\SmsService;
 use Carbon\Carbon;
 use DB;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+
 use Mail;
 use Str;
 
 class AuthController extends Controller
 {
+    protected $smsService;
+
+    public function __construct(SmsService $smsService)
+    {
+        $this->smsService = $smsService;
+    }
+
     //
     public function register(){
         return view('auth.register');
@@ -54,6 +63,9 @@ class AuthController extends Controller
             if(Carbon::now()->subMinutes(5)<$otpExist->createdAt){
                 $otpExist->isVerified = 1;
                 $otpExist->save();
+                if(auth()->user()->role=='staff'){
+                    return redirect(route('staff.admin'));
+                }
                 return redirect(route('dashboard'));
             }
             else{
@@ -104,13 +116,16 @@ class AuthController extends Controller
                     $emailExist->createdAt = $created;
                     $emailExist->expiryTime = $expiryTime;
                     $emailExist->save();
+                    // $to = "+254759352129"; 
+                    // $message = 'Your OTP is '.$otp;
+                    // $sid = $this->smsService->sendSms($to, $message);
                     Mail::to($emailExist->email)->send(new OtpMail($otp));
-                    return redirect(route('otp'))->with('success','Two factor authentication code sent to account');
+                    return redirect(route('otp'))->with('success','Two factor authentication code has been sent to account');
                 }
-                if($emailExist->role=='patient'){
-                    return redirect(route('dashboard'));
+                if($emailExist->role=='staff'){
+                    return redirect(route('staff.admin'));
                 }
-                return redirect(route('staff.admin'));
+                return redirect(route('dashboard'));
             }
             else{
                 return back()->with('error','Incorrect password');
