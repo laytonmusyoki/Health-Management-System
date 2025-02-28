@@ -58,7 +58,7 @@ class RegisterFormController extends Controller
         $registerData->maritalStatus = $request->maritalStatus;
         $registerData->education = $request->education;
         $registerData->save();
-        dd($registerData);
+        return redirect(route('find'))->with('success','Patient added successfully');
 
     }
 

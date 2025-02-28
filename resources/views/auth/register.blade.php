@@ -30,19 +30,19 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name">Full Name</label>
-                                <input type="text" name="name"  placeholder="Enter your full name" required>
+                                <input type="text" name="name"  placeholder="Enter your full name" value="{{old('name')}}">
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email</label>
-                                <input type="email" name="email"  placeholder="Enter your email" required>
+                                <input type="email" name="email"  placeholder="Enter your email" value="{{old('email')}}">
                             </div>
                             <div class="mb-3">
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password"  placeholder="Create a password" required>
+                                <input type="password" id="password" name="password"  placeholder="Create a password">
                             </div>
                             <div class="mb-3">
                                 <label for="password_confirmation">Confirm Password</label>
-                                <input type="password" id="passwords" name="password_confirmation"  placeholder="Confirm your password" required>
+                                <input type="password" id="passwords" name="password_confirmation"  placeholder="Confirm your password">
                             </div>
                             <div class="check">
                                 <input type="checkbox" class="form-check-input" id="showPassword">
