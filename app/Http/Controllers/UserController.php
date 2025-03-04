@@ -71,7 +71,7 @@ class UserController extends Controller
             'name' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => 'staff',
         ]);
 
         $user->assignRole($request->role);
@@ -89,7 +89,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $roles = Role::all();
 
-    
+
 
         return view('staff.users.details', compact('user', 'roles','selected_departments','departments'));
     }
