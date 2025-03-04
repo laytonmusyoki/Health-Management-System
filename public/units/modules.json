@@ -2,7 +2,7 @@
     "modules":[
         {
             "permission":"Registration",
-            "route":"/registration",
+            "route":"/find",
             "name":"Registration",
             "image":"user.png"
         },

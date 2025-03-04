@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 
 class RegisterFormController extends Controller
 {
-    public function registration(){
-        return view('staff.registration.index');
-    }
 
     public function find(){
-        return view('staff.registration.find');
+        $patients = registration::all();
+        return view('staff.registration.find',compact('patients'));
     }
 
     public function registrationForm(){
