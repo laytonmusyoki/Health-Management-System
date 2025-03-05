@@ -29,7 +29,6 @@ Route::group(['middleware' => ['auth','role']], function () {
     });
     
     //receptionist
-    Route::get('/registration',[RegisterFormController::class,'registration'])->name('registration');
     Route::get('/find',[RegisterFormController::class,'find'])->name('find');
     Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
     Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');

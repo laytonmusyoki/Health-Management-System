@@ -17,7 +17,7 @@ class SuperAdminSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Super Admin',
-            'email' => 'laytonmatheka@gmail.com',
+            'email' => 'chegenelson641@gmail.com',
             'password' => bcrypt('Admin123'),
             'otp_enabled' => false,
             'role'=>'staff'

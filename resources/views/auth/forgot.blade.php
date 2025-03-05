@@ -21,7 +21,7 @@
                         <br> and incase of emergency,contact us
                     </p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
-                
+
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
-                                <input type="text" name="email" placeholder="Enter your email" required>
+                                <input type="text" name="email" placeholder="Enter your email" value="{{old('email')}}" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary w-100">Submit</button>

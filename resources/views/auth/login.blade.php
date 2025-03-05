@@ -19,7 +19,7 @@
                     <h2>Welcome to Our Health Management System</h2>
                     <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
-                
+
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="">Email</label>
-                                <input type="text" name="email" placeholder="Email" >
+                                <input type="text" name="email" value="{{old('email')}}" placeholder="Email" >
                             </div>
                             <div class="mb-3">
                                 <label for="">Password</label>

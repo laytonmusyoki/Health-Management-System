@@ -19,7 +19,7 @@
                     <h2>About Our Health Management System</h2>
                     <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
-                
+
                     </div>
                 </div>
 
@@ -35,12 +35,12 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="">Otp</label>
-                                <input type="text" name="otp" placeholder="Enter otp" required>
+                                <input type="text" name="otp" placeholder="Enter otp" value="{{old('otp')}}">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary w-100">Submit</button>
                             </div>
-                            
+
                             <p id="timer"></p>
                             <p id="Resend" style="display:none;"><a href="{{route('resend')}}">Resend link</a></p>
                         </form>
@@ -55,7 +55,7 @@
         var resend =document.getElementById('Resend');
         var interval =setInterval(function () {
             var minutes = Math.floor(remainingTime / 60);
-            var seconds = Math.floor(remainingTime % 60);  
+            var seconds = Math.floor(remainingTime % 60);
             timer.innerHTML ='Otp expires in ' + minutes + ':' + seconds;
             if(remainingTime<0){
                 clearInterval(interval);
@@ -77,7 +77,7 @@
         }
     }
        </script>
-        
+
     </div>
     <x-sweet-alert/>
 </body>

@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 
 class RegisterFormController extends Controller
 {
-    public function registration(){
-        return view('staff.registration.index');
-    }
 
     public function find(){
-        return view('staff.registration.find');
+        $patients = registration::all();
+        return view('staff.registration.find',compact('patients'));
     }
 
     public function registrationForm(){
@@ -58,7 +56,7 @@ class RegisterFormController extends Controller
         $registerData->maritalStatus = $request->maritalStatus;
         $registerData->education = $request->education;
         $registerData->save();
-        dd($registerData);
+        return redirect(route('find'))->with('success','Patient added successfully');
 
     }
 
