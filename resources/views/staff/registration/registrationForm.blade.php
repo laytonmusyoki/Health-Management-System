@@ -49,7 +49,7 @@
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
-                <input class="form-control" type="date" name="dateOfBirth">
+                <input class="form-control" type="date" id="dateofbirth" name="dateOfBirth">
             </div>
         </div>
         <div class="col-lg-4">
@@ -161,5 +161,52 @@ County.addEventListener('change', function() {
         })
         .catch(error => console.error('Error fetching subcounties:', error));
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dobInput = document.getElementById("dateofbirth");
+    const ageInput = document.querySelector("input[name='age']");
+
+    // Set max attribute to today's date
+    const today = new Date().toISOString().split("T")[0];
+    dobInput.setAttribute("max", today);
+
+    dobInput.addEventListener("change", function () {
+        const dob = new Date(this.value);
+        if (!isNaN(dob.getTime())) {
+            const today = new Date();
+            
+            // Prevent future date selection
+            if (dob > today) {
+                alert("Date of birth cannot be in the future!");
+                this.value = "";
+                ageInput.value = "";
+                return;
+            }
+
+            let years = today.getFullYear() - dob.getFullYear();
+            let months = today.getMonth() - dob.getMonth();
+            let days = today.getDate() - dob.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); // Adjust days
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // If less than a year, display months
+            if (years === 0) {
+                ageInput.value = `${months} month${months !== 1 ? "s" : ""}`;
+            } else {
+                ageInput.value = `${years} year${years !== 1 ? "s" : ""}`;
+            }
+        } else {
+            ageInput.value = "";
+        }
+    });
+});
+
 </script>
 @endsection
