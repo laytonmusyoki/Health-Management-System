@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 @foreach ($patients as $patient )
-            <tr data-patient="{{ $patient->idNo }} {{ $patient->fullName() }} {{ $patient->phoneNumber }}">   
+            <tr data-patient="{{ $patient->idNo }} {{ $patient->fullName() }} {{ $patient->phoneNumber }} {{ $patient->age }}">   
                     <td>{{ $patient->idNo }}</td>
                     <td>{{ $patient->fullName() }}</td>
                     <td>{{ $patient->age }}</td>

@@ -49,11 +49,7 @@
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="dateOfBirth" class="form-label">Date Of Birth</label>
-<<<<<<< HEAD
-                <input class="form-control" type="date" id="dateofbirth" name="dateOfBirth">
-=======
-                <input class="form-control" type="date" value="{{old('dateOfBirth')}}" name="dateOfBirth">
->>>>>>> origin
+                <input class="form-control" type="date" id="dateofbirth" value="{{old('dateOfBirth')}}" name="dateOfBirth">
             </div>
         </div>
         <div class="col-lg-4">
