@@ -4,61 +4,81 @@
             "permission":"Patient Tracking",
             "route":"tracking.index",
             "name":"Patient Tracking",
-            "image":"tracking.png"
+            "image":"tracking.png",
+            "url":"patient/queue",
+            "queue":""
         },
         {
             "permission":"Registration",
             "route":"find",
             "name":"Registration",
-            "image":"user.png"
+            "image":"user.png",
+            "url":"patient/queue",
+            "queue":""
         },
         {
             "permission":"Triage",
             "route":"triage.index",
             "name":"Triage",
-            "image":"triage.png"
+            "image":"triage.png",
+            "url":"patient/queue",
+            "queue":"TriageQueue"
         },
         {
             "permission":"Clinician",
             "route":"clinician.index",
             "name":"Clinician",
-            "image":"clinician.png"
+            "image":"clinician.png",
+            "url":"patient/queue",
+            "queue":"ClinicianQueue"
         },
         {
             "permission":"Drug Prescription",
             "route":"drugs.index",
             "name":"Drug Prescription",
-            "image":"pills.png"
+            "image":"pills.png",
+            "url":"patient/queue",
+            "queue":"DrugsQueue"
         },
         {
             "permission":"Lab",
             "route":"lab.index",
             "name":"Lab",
-            "image":"microscope.png"
+            "image":"microscope.png",
+            "url":"patient/queue",
+            "queue":"LabQueue"
         },
         {
             "permission":"Billing",
             "route":"billing.index",
             "name":"Billing",
-            "image":"bill.png"
+            "image":"bill.png",
+            "url":"patient/queue",
+            "queue":"BillingQueue"
         },
         {
             "permission":"HIV Testing",
             "route":"Hiv.index",
             "name":"HIV Testing",
-            "image":"test.png"
+            "image":"test.png",
+            "url":"patient/queue",
+            "queue":"HivQueue"
         },
         {
             "permission":"Ward",
             "route":"ward.index",
             "name":"Ward",
-            "image":"ward.png"
+            "image":"ward.png",
+            "url":"patient/queue",
+            "queue":"WardQueue"
         },
         {
             "permission":"Procedure Room",
             "route":"procedure.index",
             "name":"Procedure Room",
-            "image":"ward.png"
+            "image":"ward.png",
+            "url":"patient/queue",
+            "queue":"ProcedureQueue"
         }
     ]
 }
