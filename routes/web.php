@@ -1,12 +1,21 @@
 <?php
 
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\ClinicianController;
+use App\Http\Controllers\DrugsController;
+use App\Http\Controllers\HivController;
+use App\Http\Controllers\LabController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\ProcedureRoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterFormController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\TriageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -20,20 +29,38 @@ Route::group(['middleware' => ['auth','role']], function () {
     // super admin
     Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
 
-    Route::middleware(['permission'])->group(function () {
+    Route::middleware(['auth'])->group(function () {
         Route::resource('admin/roles/delete', RolesController::class)->names('roles');
         Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
         Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
         Route::delete('admin/permissions/delete/{id}', [PermissionsController::class, 'destroy'])->name('permissions.delete');
         Route::resource('admin/users', UserController::class)->names('users');
-    });
+        //receptionist
+        Route::get('/find',[RegisterFormController::class,'find'])->name('find');
+        Route::get('/registerQueue/{id}',[RegisterFormController::class,'registerQueue'])->name('registerQueue');
+        Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
+        Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');
+        Route::get('/get/subcounties/{id}',[RegisterFormController::class,'data'])->name('data');
+        // triage
+        Route::resource('triage', TriageController::class)->names('triage');
+        // Clinician
+        Route::resource('/clinician',ClinicianController::class)->names('clinician');
+        // Drugs
+        Route::resource('/drugs',DrugsController::class)->names('drugs');
+        // Lab
+        Route::resource('/lab',LabController::class)->names('lab');
+        // billing
+        Route::resource('/billing',BillingController::class)->names('billing');
+        // Hiv
+        Route::resource('/Hiv',HivController::class)->names('Hiv');
+        // Ward
+        Route::resource('/ward',WardController::class)->names('ward');
+        // procedure
+        Route::resource('/procedure',ProcedureRoomController::class)->names('procedure');
+        // tracking
+        Route::resource('/tracking',TrackingController::class)->names('tracking');
+        });
     
-    //receptionist
-    Route::get('/find',[RegisterFormController::class,'find'])->name('find');
-    Route::get('/registrationForm',[RegisterFormController::class,'registrationForm'])->name('registrationForm');
-    Route::post('/registrationFormPost',[RegisterFormController::class,'registrationFormPost'])->name('registrationFormPost');
-    Route::get('/get/subcounties/{id}',[RegisterFormController::class,'data'])->name('data');
-
 });
 
 

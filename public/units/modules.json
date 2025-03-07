@@ -1,56 +1,62 @@
 {
     "modules":[
         {
+            "permission":"Patient Tracking",
+            "route":"tracking.index",
+            "name":"Patient Tracking",
+            "image":"tracking.png"
+        },
+        {
             "permission":"Registration",
-            "route":"/find",
+            "route":"find",
             "name":"Registration",
             "image":"user.png"
         },
         {
             "permission":"Triage",
-            "route":"admin.triage",
+            "route":"triage.index",
             "name":"Triage",
             "image":"triage.png"
         },
         {
             "permission":"Clinician",
-            "route":"admin.clinician",
+            "route":"clinician.index",
             "name":"Clinician",
             "image":"clinician.png"
         },
         {
             "permission":"Drug Prescription",
-            "route":"admin.prescription",
+            "route":"drugs.index",
             "name":"Drug Prescription",
             "image":"pills.png"
         },
         {
             "permission":"Lab",
-            "route":"admin.lab",
+            "route":"lab.index",
             "name":"Lab",
             "image":"microscope.png"
         },
         {
             "permission":"Billing",
-            "route":"admin.lab",
+            "route":"billing.index",
             "name":"Billing",
             "image":"bill.png"
         },
         {
             "permission":"HIV Testing",
-            "route":"admin.lab",
+            "route":"Hiv.index",
             "name":"HIV Testing",
             "image":"test.png"
         },
         {
             "permission":"Ward",
-            "route":"admin.lab",
+            "route":"ward.index",
             "name":"Ward",
             "image":"ward.png"
         },
         {
             "permission":"Procedure Room",
-            "route":"admin.lab",
+            "route":"procedure.index",
             "name":"Procedure Room",
             "image":"ward.png"
         }

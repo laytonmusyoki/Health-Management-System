@@ -23,6 +23,7 @@ class PermissionSeeder extends Seeder
             'HIV Testing',
             'Ward',
             'Procedure Room',
+            'Patient Tracking'
         ];
         foreach($modules as $module){
             $permissionExists=Permission::where('name',$module)->first();

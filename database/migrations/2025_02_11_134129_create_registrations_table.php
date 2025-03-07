@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->string('maritalStatus')->nullable();
             $table->string('education')->nullable();
+            $table->string('status')->default('Registered');
             $table->timestamps();
         });
     }

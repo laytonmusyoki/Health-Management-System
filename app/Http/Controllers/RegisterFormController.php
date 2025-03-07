@@ -65,4 +65,11 @@ class RegisterFormController extends Controller
         $subcounties = SubCounty::where('countyId',$id)->get();
         return response(['subcounties'=>$subcounties]);
     }
+
+    public function registerQueue($id){
+        $patient = registration::find($id);
+        $patient->status = 'TriageQueue';
+        $patient->save();
+        return redirect(route('find'))->with('success','Patient added to queue successfully');
+    }
 }

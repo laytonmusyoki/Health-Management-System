@@ -4,7 +4,7 @@
 <div class="registration" style="display: flex; align-items: center; justify-content: space-between;">
     <div class="mb-3" style="width: 50%;">
         <label for="age" class="form-label">Id or Name</label>
-        <input class="form-control" type="text" id="search"  name="search" placeholder="Search" style="width:80%;">
+        <input class="form-control" type="text" id="search"  name="search" placeholder="Search patient..." style="width:80%;">
     </div>
     <div class="register" style="width: 40%; padding: 10px; text-align: center; border-radius: 10px;">
         <a href="{{route('registrationForm')}}" class="">
@@ -31,7 +31,11 @@
                     <td>{{ $patient->age }}</td>
                     <td>{{ $patient->phoneNumber }}</td>
                     <td>
-                        <a href="" class="btn btn-success">Admit</a>
+                        @if($patient->status=="Registered")
+                        <a href="{{ route('registerQueue',$patient->id) }}" class="btn btn-success">Queue Patient</a>
+                        @else
+                        <a class="btn btn-primary">{{ $patient->status }}</a>
+                        @endif
                     </td>
                 </tr>                    
                 @endforeach

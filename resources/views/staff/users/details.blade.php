@@ -14,7 +14,6 @@
                     <h5 class="mb-1">
                         {{ $user->first_name ?? 'Firstname' }} {{ $user->last_name ?? 'Lastname'}} ( {{$user->role}})
                     </h5>
-
                 </div>
             </div>
         </div>
