@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth','role']], function () {
         Route::resource('triage', TriageController::class)->names('triage');
         // Clinician
         Route::resource('/clinician',ClinicianController::class)->names('clinician');
+        Route::post('/clinician/labTest',[ClinicianController::class,'labTest'])->name('clincian.labTest');
         // Drugs
         Route::resource('/drugs',DrugsController::class)->names('drugs');
         // Lab
@@ -60,7 +61,7 @@ Route::group(['middleware' => ['auth','role']], function () {
         // tracking
         Route::resource('/tracking',TrackingController::class)->names('tracking');
         });
-    
+
 });
 
 

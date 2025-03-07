@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clinician;
+use App\Models\Lab;
 use App\Models\registration;
+use App\Models\Triage;
 use Illuminate\Http\Request;
 
 class ClinicianController extends Controller
@@ -36,9 +38,39 @@ class ClinicianController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Clinician $clinician)
+    public function show( $id)
     {
-        //
+        $patient = Triage::where( 'patient_id',$id )->first();
+        $labResult = $patient->patient_id;
+        $result = Lab::where('patient_id',$labResult)->first();
+        return view("staff.clinician.show",compact("patient","result"));
+
+    }
+
+    public function labTest(Request $request){
+        $data = $request->validate([
+            'patient_id'=>'required',
+            'test'=>'required'
+        ]);
+
+        if($data){
+            $patient=registration::where('id',$request->patient_id)->first();
+            $patient->status = "LabQueue";
+            $patient->save();
+
+            $patientExist = Lab::where("patient_id", $request->patient_id)->first();
+
+            if($patientExist){
+                $patientExist->test = $request->test;
+                $patientExist->save();
+                return redirect(route("clinician.index"))->with("success","Patient sent to laboratory");
+            }
+            $record = new Lab();
+            $record->test = $request->test;
+            $record->patient_id = $request->patient_id;
+            $record->save();
+            return redirect(route("clinician.index"));
+        }
     }
 
     /**

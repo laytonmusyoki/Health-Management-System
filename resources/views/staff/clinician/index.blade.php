@@ -12,7 +12,7 @@ Queued Patients
 
 <div class="product-count d-flex align-items-center gap-3 gap-lg-4 mb-4 fw-medium flex-wrap font-text1">
     <a href="javascript:;"><span class="me-1">All</span><span class="text-secondary">
-       ( {{ $patients->count() }} ) 
+       ( {{ $patients->count() }} )
     </span></a>
 </div>
 
@@ -22,29 +22,29 @@ Queued Patients
             <thead>
                 <th>IdNo</th>
                 <th>Name</th>
-                <th>Age</th> 
+                <th>Age</th>
                 <th>Phone number</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 @foreach ($patients as $data )
-                <tr>   
+                <tr>
                     <td>{{ $data->idNo }}</td>
-                    <td>{{ $data->fullName() }}</td>
+                    <td><a href="{{route('clinician.show',$data->id)}}">{{ $data->fullName() }}</a></td>
                     <td>{{ $data->age }}</td>
                     <td>{{ $data->phoneNumber }}</td>
                     <td>
-                        <button class="btn btn-success triage-btn" 
-                            data-id="{{ $data->id }}" 
-                            data-name="{{ $data->fullName() }}" 
-                            data-age="{{ $data->age }}" 
+                        <button class="btn btn-success triage-btn"
+                            data-id="{{ $data->id }}"
+                            data-name="{{ $data->fullName() }}"
+                            data-age="{{ $data->age }}"
                             data-phone="{{ $data->phoneNumber }}"
-                            data-bs-toggle="modal" 
+                            data-bs-toggle="modal"
                             data-bs-target="#triageModal">
-                            Triage
+                            Treat
                         </button>
                     </td>
-                </tr>                    
+                </tr>
                 @endforeach
             </tbody>
         </table>

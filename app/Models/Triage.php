@@ -13,4 +13,8 @@ class Triage extends Model
         "height",
         "weight",
     ];
+
+    public function patient(){
+        return $this->belongsTo(registration::class,"patient_id");
+    }
 }

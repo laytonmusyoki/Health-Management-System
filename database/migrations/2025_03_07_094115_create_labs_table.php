@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('labs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('patient_id')->constrained('registrations')->cascadeOnDelete();
+            $table->string('test');
+            $table->string('results')->nullable();
             $table->timestamps();
         });
     }
