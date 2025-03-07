@@ -1,0 +1,28 @@
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{0}: rebase (abort): updating HEAD
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{1}: rebase (abort): updating HEAD
+[33mc99b063[m HEAD@{2}: commit: Lab module
+[33m127e96e[m HEAD@{3}: merge origin/main: Merge made by the 'ort' strategy.
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{4}: reset: moving to HEAD
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{5}: reset: moving to HEAD
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{6}: checkout: moving from 703d2b25c2670a72d621e784da2dbc50cd1b4e2b to Nelson
+[33m703d2b2[m HEAD@{7}: commit: New pull
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{8}: pull (start): checkout 32f95b69a00ab990469e05282e3d7ce481daca2f
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{9}: pull origin main (finish): returning to refs/heads/Nelson
+[33md0d4bb8[m[33m ([m[1;36mHEAD -> [m[1;32mNelson[m[33m)[m HEAD@{10}: pull origin main (pick): Changed role
+[33mb6a0480[m HEAD@{11}: pull origin main (start): checkout b6a0480c76a98b157a500d8f55ff9a37556c30c3
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{12}: checkout: moving from tobias to Nelson
+[33m8cca44c[m[33m ([m[1;31morigin/tobias[m[33m, [m[1;32mtobias[m[33m)[m HEAD@{13}: checkout: moving from main to tobias
+[33mf2e2c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{14}: checkout: moving from Nelson to main
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{15}: checkout: moving from main to Nelson
+[33mf2e2c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{16}: checkout: moving from Nelson to main
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{17}: checkout: moving from main to Nelson
+[33mf2e2c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{18}: checkout: moving from Nelson to main
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{19}: checkout: moving from main to Nelson
+[33mf2e2c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{20}: pull origin main: Fast-forward
+[33m6f604e9[m HEAD@{21}: checkout: moving from Nelson to main
+[33m32f95b6[m[33m ([m[1;31morigin/Nelson[m[33m)[m HEAD@{22}: commit: Changed role
+[33mf2e2c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{23}: pull origin main: Fast-forward
+[33m6f1fca3[m HEAD@{24}: commit: Registration
+[33m6f604e9[m HEAD@{25}: merge origin: Fast-forward
+[33m1ca517b[m HEAD@{26}: checkout: moving from main to Nelson
+[33m6f604e9[m HEAD@{27}: clone: from https://github.com/laytonmusyoki/Health-Management-System.git
