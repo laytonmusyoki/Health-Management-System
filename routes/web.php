@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth','role']], function () {
     // super admin
     Route::get('/staff/admin',[StaffController::class,'index'])->name('staff.admin');
 
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['permission'])->group(function () {
         Route::resource('admin/roles/delete', RolesController::class)->names('roles');
         Route::resource('admin/permissions', PermissionsController::class)->names('permissions');
         Route::delete('admin/roles/delete/{id}', [RolesController::class, 'destroy'])->name('roles.delete');
