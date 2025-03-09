@@ -65,8 +65,9 @@ Route::group(['middleware' => ['auth','role']], function () {
         // pharmacy
         Route::resource('/pharmacy',PharmacyController::class)->names('pharmacy');
         Route::get('/pharmacy', [PharmacyController::class, 'index'])->name('pharmacy.index');
+        Route::get('/pharmacy/show/{id}', [PharmacyController::class, 'show'])->name('pharmacy.show');
         Route::post('/pharmacy/dispense', [PharmacyController::class, 'dispense'])->name('pharmacy.dispense');
-        
+
 });
 
 
