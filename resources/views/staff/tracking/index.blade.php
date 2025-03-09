@@ -120,10 +120,10 @@
     var weeklyPatientsChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: {!! json_encode($week_labels) !!}, 
+            labels: {!! json_encode($week_labels) !!},
             datasets: [{
                 label: 'Patients',
-                data: {!! json_encode($week_data) !!}, 
+                data: {!! json_encode($week_data) !!},
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1

@@ -32,7 +32,33 @@ class ClinicianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "patient_id"=> "required",
+            "signs"=> "required",
+            "disease"=> "required",
+            'medicine'=>'required'
+        ]);
+
+        if($data){
+            $patient = registration::where('id',$request->patient_id)->first();
+            $patient->status = 'DrugsQueue';
+            $patient->save();
+            $patientExist = Clinician::where('patient_id',$request->patient_id)->first();
+            if($patientExist){
+                $patientExist->signs = $request->signs;
+                $patientExist->disease = $request->disease;
+                $patientExist->medicine = $request->medicine;
+                $patientExist->save();
+                return redirect(route('clinician.index'))->with('success','Patient treated successfully');
+            }
+            $record = new Clinician();
+            $record->patient_id = $request->patient_id;
+            $record->signs = $request->signs;
+            $record->disease = $request->disease;
+            $record->medicine = $request->medicine;
+            $record->save();
+            return redirect(route('clinician.index'))->with('success','Patient treated successfully');
+        }
     }
 
     /**

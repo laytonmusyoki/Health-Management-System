@@ -34,15 +34,7 @@ Queued Patients
                     <td>{{ $data->age }}</td>
                     <td>{{ $data->phoneNumber }}</td>
                     <td>
-                        <button class="btn btn-success triage-btn"
-                            data-id="{{ $data->id }}"
-                            data-name="{{ $data->fullName() }}"
-                            data-age="{{ $data->age }}"
-                            data-phone="{{ $data->phoneNumber }}"
-                            data-bs-toggle="modal"
-                            data-bs-target="#triageModal">
-                            Treat
-                        </button>
+                        <a href="{{route('clinician.show',$data->id)}}" class="btn btn-success">Treat</a>
                     </td>
                 </tr>
                 @endforeach
