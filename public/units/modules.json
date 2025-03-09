@@ -33,6 +33,14 @@
             "queue":"ClinicianQueue"
         },
         {
+            "permission":"Pharmacy",
+            "route":"pharmacy.index",
+            "name":"Pharmacy",
+            "image":"clinician.png",
+            "url":"patient/queue",
+            "queue":"PharmacyQueue"
+        },
+        {
             "permission":"Drug Prescription",
             "route":"drugs.index",
             "name":"Drug Prescription",

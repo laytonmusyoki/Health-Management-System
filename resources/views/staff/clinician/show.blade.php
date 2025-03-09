@@ -23,7 +23,7 @@
             <div class="card-body">
                 <p style="font-size: 20px;">Temperature: <span style="font-size: 15px;">{{ $patient->temperature }}'C</span></p>
                 <p style="font-size: 20px;">Pressure: <span style="font-size: 15px;">{{ $patient->pressure }}mmHg</span></p>
-                <p style="font-size: 20px;">Height: <span style="font-size: 15px;">{{ $patient->height }}m</span></p>
+                <p style="font-size: 20px;">Height: <span style="font-size: 15px;">{{ $patient->height }}cm</span></p>
                 <p style="font-size: 20px;">Weight: <span style="font-size: 15px;">{{ $patient->weight }}Kg</span></p>
             </div>
         </div>
@@ -34,7 +34,8 @@
                 Treatment
             </div>
             <div class="card-body">
-               <form action="" method="post">
+               <form action="{{route('clinician.store')}}" method="post">
+                @csrf
                 <div class="mb-3">
                     <textarea name="signs" class="form-select" placeholder="Enter the signs and symptoms"  id="textArea"></textarea>
                     <p>Characters <span id="charCount">0</span></p>
@@ -42,6 +43,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
+                            <input type="text" hidden name="patient_id" value="{{$patient->patient_id}}">
                             <label for="" style="width: 100%;font-weight: bold;">Disease</label>
                             <input type="text" class="form-control" style="width: 100%; border-radius: 10px; padding: 10px;" name="disease" placeholder="Enter the disease">
                         </div>
@@ -54,7 +56,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-success" type="submit">Submit</button>
                 </div>
                </form>
             </div>

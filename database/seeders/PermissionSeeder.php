@@ -15,6 +15,7 @@ class PermissionSeeder extends Seeder
     {
         $modules=[
             'Registration',
+            'Pharmacy',
             'Triage',
             'Clinician',
             'Drug Prescription',
