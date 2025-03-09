@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clinician;
 use App\Models\Drugs;
 use App\Models\Dispensation;
 use App\Models\registration;
@@ -13,12 +14,17 @@ class PharmacyController extends Controller
 {
     public function index()
     {
-        $drugs = Drugs::with('stocks')->get();
-        $patients = registration::all();
+
         $labPatient=registration::where('status','PharmacyQueue')->get();
-        return view('staff.pharmacy.index', compact('drugs', 'patients','labPatient'));
+        return view('staff.pharmacy.index', compact('labPatient'));
     }
 
+    public function show($id){
+        $drugs = Drugs::with('stocks')->get();
+        $patients = registration::where('id',$id)->first();
+        $patient = Clinician::where('patient_id',$id)->first();
+        return view('staff.pharmacy.show', compact('patient','drugs','patients'));
+    }
     public function store(Request $request)
 {
     // Validate the incoming request
@@ -30,7 +36,7 @@ class PharmacyController extends Controller
     ]);
 
     $drug = Drugs::findOrFail($request->drug_id);
-    $stock = $drug->stocks()->first(); 
+    $stock = $drug->stocks()->first();
 
     if ($drug->drug_type == 'tablet') {
         $requestedQuantity = $request->quantity_dispensed_mL;
@@ -40,13 +46,14 @@ class PharmacyController extends Controller
 
         $stock->tablets_added -= $requestedQuantity;
         $stock->save();
-        
+
         Dispensation::create([
             'drug_id' => $request->drug_id,
             'patient_id' => $request->patient_id,
             'quantity_dispensed_mL' => $requestedQuantity,
             'dispensed_by' => auth()->id(),
         ]);
+        registration::where('id',$request->patient_id)->update(['status'=>'Registered']);
     }
     elseif ($drug->drug_type == 'bottle') {
         $requestedBottles = $request->bottles_dispensed;
@@ -56,13 +63,14 @@ class PharmacyController extends Controller
 
         $stock->bottles_added -= $requestedBottles;
         $stock->save();
-        
+
         Dispensation::create([
             'drug_id' => $request->drug_id,
             'patient_id' => $request->patient_id,
             'bottles_dispensed' => $requestedBottles,
             'dispensed_by' => auth()->id(),
         ]);
+        registration::where('id',$request->patient_id)->update(['status'=>'Registered']);
     }
     else {
         if(requestedQuantity==0){
@@ -75,16 +83,18 @@ class PharmacyController extends Controller
 
         $stock->quantity_mL -= $requestedQuantity;
         $stock->save();
-        
+
         Dispensation::create([
             'drug_id' => $request->drug_id,
             'patient_id' => $request->patient_id,
             'quantity_dispensed_mL' => $requestedQuantity,
             'dispensed_by' => auth()->id(),
         ]);
+        registration::where('id',$request->patient_id)->update(['status'=>'Registered']);
+
     }
 
-    return back()->with('success', 'Drug dispensed successfully!');
+    return redirect(route('pharmacy.index'))->with('success', 'Drug dispensed successfully!');
 }
 
 
