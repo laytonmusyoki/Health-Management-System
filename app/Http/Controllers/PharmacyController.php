@@ -65,6 +65,9 @@ class PharmacyController extends Controller
         ]);
     }
     else {
+        if(requestedQuantity==0){
+
+        }
         $requestedQuantity = $request->quantity_dispensed_mL;
         if ($requestedQuantity > $stock->quantity_mL) {
             return back()->with('error', 'Not enough liquid in stock.');
