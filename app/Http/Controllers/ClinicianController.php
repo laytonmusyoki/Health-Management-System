@@ -41,7 +41,7 @@ class ClinicianController extends Controller
 
         if($data){
             $patient = registration::where('id',$request->patient_id)->first();
-            $patient->status = 'DrugsQueue';
+            $patient->status = 'PharmacyQueue';
             $patient->save();
             $patientExist = Clinician::where('patient_id',$request->patient_id)->first();
             if($patientExist){

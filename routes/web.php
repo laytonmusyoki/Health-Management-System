@@ -7,6 +7,7 @@ use App\Http\Controllers\HivController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\ProcedureRoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterFormController;
@@ -61,11 +62,21 @@ Route::group(['middleware' => ['auth','role']], function () {
         // tracking
         Route::resource('/tracking',TrackingController::class)->names('tracking');
         });
-
+        // pharmacy
+        Route::resource('/pharmacy',PharmacyController::class)->names('pharmacy');
+        Route::get('/pharmacy', [PharmacyController::class, 'index'])->name('pharmacy.index');
+        Route::post('/pharmacy/dispense', [PharmacyController::class, 'dispense'])->name('pharmacy.dispense');
+        
 });
 
 
 
+Route::get('/drugs', [DrugsController::class, 'index'])->name('drugs.index'); // List drugs
+Route::post('/drugs/restock', [DrugsController::class, 'restock'])->name('drugs.restock'); // Restock drugs
+Route::get('/drugs/stock-levels', [DrugsController::class, 'stockLevels'])->name('drugs.stockLevels'); // Manage stock levels
+Route::get('/drugs/expiration', [DrugsController::class, 'expirationTracking'])->name('drugs.expirationTracking'); // Track expiration
+Route::get('/drugs/{id}/viewStock', [DrugsController::class, 'viewStock'])->name('drugs.viewStock');
+Route::get('/drugs/{id}/trackExpiry', [DrugsController::class, 'trackExpiry'])->name('drugs.trackExpiry');
 
 
 

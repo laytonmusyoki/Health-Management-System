@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('drugs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('drug_type', ['tablet', 'liquid', 'bottle']);
+            $table->string('unit_measurement')->nullable(); 
+            $table->integer('bottle_size_mL')->nullable(); // Size per bottle (for liquid drugs)
+            $table->integer('bottles_in_stock')->default(0); // Total bottles in stock
+            $table->integer('total_quantity_mL')->default(0); // Total available quantity (tablets or liquid mL)
             $table->timestamps();
         });
     }
