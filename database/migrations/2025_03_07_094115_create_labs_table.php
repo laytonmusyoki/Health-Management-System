@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained('registrations')->cascadeOnDelete();
             $table->string('test');
-            $table->string('results')->nullable();
+            $table->string('results')->default('null');
             $table->timestamps();
         });
     }
