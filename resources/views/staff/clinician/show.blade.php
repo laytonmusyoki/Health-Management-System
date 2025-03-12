@@ -89,6 +89,7 @@
                     </div>
                 </form>
                 @else
+                <h3>Test:{{$result->test}}</h3>
                 <p>Result: {{$result->results}}</p>
                 @endif
             </div>
