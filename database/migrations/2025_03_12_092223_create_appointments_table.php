@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('doctor_id');
             $table->string('doctorName');
             $table->string('patientName');
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->string('time');
             $table->string('reason');
             $table->string('status')->default('Pending');
-            $table->string('createdAt')->nullable();
+            
             $table->timestamps();
         });
     }
