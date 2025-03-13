@@ -16,6 +16,7 @@
                 <h3>Book an Appointment</h3>
                 @csrf
                 <input type="hidden" id="doctor_id" name="doctor_id">
+                <input type="hidden" id="patient_id" name="user_id" value="{{ auth()->user()->id }}">
                 <div class="form-group">
                     <label for="Doctor Name">Doctor Name</label>
                     <input type='text' class="form-control" id="doctor_name" name="doctorName"  readonly>

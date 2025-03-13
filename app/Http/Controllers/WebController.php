@@ -19,6 +19,7 @@ class WebController extends Controller
     }
     public function appointmentsPost( Request $request){
         $data = $request->validate([
+            'user_id'=> 'required|exists:users,id',
             'doctor_id' => 'required|exists:users,id',
             'doctorName' => 'required',
             'patientName' => 'required',
