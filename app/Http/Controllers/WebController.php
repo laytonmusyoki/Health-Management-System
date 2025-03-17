@@ -44,10 +44,11 @@ class WebController extends Controller
                 return redirect()->route('dashboard')->with('success','Appointment booked successfully');
             }
             catch(\Exception $e){
-                return redirect()->back()->with('error','Please try again');
+                return redirect()->back()->with('error', $e->getMessage());
             }
             finally{
                 Appointment::create($data);
+                return redirect()->route('dashboard')->with('success','Appointment booked successfully');
             }
             
         
