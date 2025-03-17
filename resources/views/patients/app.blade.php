@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title')</title>
   <!--favicon-->
-	<link rel="icon" href="{{ asset('img/chapaLogo.jpeg') }}" type="image/png">
+	<link rel="icon" href="{{ asset('images/clinician.png') }}" type="image/png">
 
   <!--plugins-->
   <link href="/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
