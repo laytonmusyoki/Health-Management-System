@@ -63,8 +63,10 @@ class ClinicianController extends Controller
             $record->signs = $request->signs;
             $record->disease = $request->disease;
             $record->medicine = $request->medicine;
-            $labtest->results = 'null';
-            $labtest->save();
+            if(!empty( $labtest )){
+                $labtest->results = 'null';
+                $labtest->save();
+            }
             $record->save();
             return redirect(route('clinician.index'))->with('success','Patient treated successfully');
         }
