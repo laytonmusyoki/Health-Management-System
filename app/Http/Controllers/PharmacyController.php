@@ -73,6 +73,7 @@ class PharmacyController extends Controller
         registration::where('id',$request->patient_id)->update(['status'=>'Registered']);
     }
     else {
+        
         $requestedQuantity = $request->quantity_dispensed_mL;
         if ($requestedQuantity > $stock->quantity_mL) {
             return back()->with('error', 'Not enough liquid in stock.');

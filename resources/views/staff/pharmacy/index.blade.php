@@ -22,7 +22,7 @@
                         <td>{{ $data->age }}</td>
                         <td>{{ $data->phoneNumber }}</td>
                         <td>
-                           <a href="{{route('pharmacy.show',$data->id)}}" class="btn btn-success">Test</a>
+                           <a href="{{route('pharmacy.show',$data->id)}}" class="btn btn-success">Dispense</a>
                         </td>
                     </tr>
                     @endforeach
