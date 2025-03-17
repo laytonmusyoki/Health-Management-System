@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\ClinicianController;
 use App\Http\Controllers\DrugsController;
@@ -49,6 +50,8 @@ Route::group(['middleware' => ['auth','role']], function () {
         // Clinician
         Route::resource('/clinician',ClinicianController::class)->names('clinician');
         Route::post('/clinician/labTest',[ClinicianController::class,'labTest'])->name('clincian.labTest');
+        Route::resource('/admin/clinician/appointments',AppointmentController::class)->names('clinician.appointments');
+        
         // Drugs
         Route::resource('/drugs',DrugsController::class)->names('drugs');
         // Lab
@@ -80,6 +83,8 @@ Route::get('/drugs/stock-levels', [DrugsController::class, 'stockLevels'])->name
 Route::get('/drugs/expiration', [DrugsController::class, 'expirationTracking'])->name('drugs.expirationTracking'); // Track expiration
 Route::get('/drugs/{id}/viewStock', [DrugsController::class, 'viewStock'])->name('drugs.viewStock');
 Route::get('/drugs/{id}/trackExpiry', [DrugsController::class, 'trackExpiry'])->name('drugs.trackExpiry');
+
+
 
 
 

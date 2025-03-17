@@ -14,6 +14,7 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         $modules=[
+            'Appointments',
             'Registration',
             'Pharmacy',
             'Triage',

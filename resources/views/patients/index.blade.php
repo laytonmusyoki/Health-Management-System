@@ -5,10 +5,10 @@
 @section('content')
 
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">  
-    
+    <div class="breadcrumb-title pe-3">
+
     Dashboard
-        
+
     </div>
 
 </div>
@@ -18,6 +18,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
+            <a href="{{route('appointments')}}" class="btn btn-primary" style="float: right; margin: 10px;;">Make Appointment</a>
+
                 <h5 class="card-title">My Appointments</h5>
                 <table class="table">
                     <thead>
@@ -39,9 +41,9 @@
                             <td>{{ $appointment->date }}</td>
                             <td>{{ $appointment->time }}</td>
                             <td>
-                                @if ($appointment->status == 'pending')
+                                @if ($appointment->status == 'Pending')
                                     <span class="badge bg-warning text-dark">{{ $appointment->status }}</span>
-                                @elseif ($appointment->status == 'approved')
+                                @elseif ($appointment->status == 'Approved')
                                     <span class="badge bg-success">{{ $appointment->status }}</span>
                                 @else
                                     <span class="badge bg-danger">{{ $appointment->status }}</span>
@@ -57,5 +59,5 @@
 </div>
 
 
-    
+
 @endsection

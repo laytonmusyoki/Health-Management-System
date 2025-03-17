@@ -9,6 +9,14 @@
             "queue":""
         },
         {
+            "permission":"Appointments",
+            "route":"clinician.appointments.index",
+            "name":"Appointments",
+            "image":"meeting.png",
+            "url":"appointment/queue",
+            "queue":"AppointmentQueue"
+        },
+        {
             "permission":"Registration",
             "route":"find",
             "name":"Registration",
