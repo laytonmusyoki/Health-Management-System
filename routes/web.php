@@ -19,6 +19,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OnlineRegistrationController;
+use App\Http\Controllers\WebController;
 
 //online patients
 Route::get('/user/patient',[PatientController::class,'index'])->name('user.patient');
@@ -106,7 +108,7 @@ Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('/user/twoStep',[ProfileController::class,'twoStep'])->name('2step.upate');
 Route::post('/profile/update',[ProfileController::class,'updateProfile'])->name('profile.update');
 Route::post('/profile/updatepassword',[ProfileController::class,'updatepassword'])->name('profile.updatepassword');
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/registerpost',[AuthController::class,'registerpost'])->name('registerpost');
 Route::get('/otp',[AuthController::class,'otp'])->name('otp');
@@ -117,10 +119,23 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
 // });
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+    Route::get('/dashboard',[PatientController::class,'index'])->name('dashboard');
 });
 
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
 Route::post('/forgotpost',[AuthController::class,'forgotpost'])->name('forgotpost');
 Route::get('/setnewpassword/{token}',[AuthController::class,'setnewpassword'])->name('setnewpassword');
 Route::post('/reset/{token}',[AuthController::class,'reset'])->name('reset');
+
+
+
+
+
+
+// Online patients Routes
+Route::get('/',[WebController::class,'landingPage'])->name('OnlineDashboard');
+Route::group(['middleware'=>'authCheck'],function(){
+    Route::get('/appointments',[WebController::class,'appointments'])->name('appointments');
+});
+
+Route::post('/appointments/post',[WebController::class,'appointmentsPost'])->name('appointmentsPost');

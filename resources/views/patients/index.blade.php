@@ -11,8 +11,51 @@
         
     </div>
 
-
-
 </div>
+
+{{-- my appointments --}}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Appointments</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Doctor</th>
+                            <th>patientName</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($appointments as $appointment)
+                        <tr>
+                            <td>{{ $appointment->doctor->name }}</td>
+                            <td>{{ $appointment->patientName }}</td>
+                            <td>{{ $appointment->phone }}</td>
+                            <td>{{ $appointment->date }}</td>
+                            <td>{{ $appointment->time }}</td>
+                            <td>
+                                @if ($appointment->status == 'pending')
+                                    <span class="badge bg-warning text-dark">{{ $appointment->status }}</span>
+                                @elseif ($appointment->status == 'approved')
+                                    <span class="badge bg-success">{{ $appointment->status }}</span>
+                                @else
+                                    <span class="badge bg-danger">{{ $appointment->status }}</span>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     
 @endsection

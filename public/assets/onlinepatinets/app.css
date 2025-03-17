@@ -1,0 +1,90 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #005b99; /* Blue background */
+    padding: 15px 0;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #005b99;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: lightgray;
+}
+
+.nav-links .active {
+    color: #4CAF50; /* Green active link */
+}
+
+/* User Login */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-icon {
+    background-color: white;
+    color: #005b99;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.user-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-section a:hover {
+    color: lightgray;
+}

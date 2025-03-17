@@ -66,7 +66,7 @@ class AuthController extends Controller
                 if(auth()->user()->role=='staff'){
                     return redirect(route('staff.admin'));
                 }
-                return redirect(route('dashboard'));
+                return redirect(route('appointments'));
             }
             else{
                 return back()->with('error','Otp has expired');
@@ -123,7 +123,7 @@ class AuthController extends Controller
                     return redirect(route('otp'))->with('success','Two factor authentication code has been sent to account');
                 }
                 if($emailExist->role=='patient'){
-                    return redirect(route('dashboard'));
+                    return redirect(route('appointments'));
                 }
                 return redirect(route('staff.admin'));
             }
@@ -205,5 +205,6 @@ class AuthController extends Controller
         return redirect(route('forgot'))->with('error','Incorrect token');
     }
     }
-   
+
+    
 }
