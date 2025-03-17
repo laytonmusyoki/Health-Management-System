@@ -18,28 +18,30 @@ Queued Patients
 
 <div class="card">
     <div class="card-body">
-        <table class="table table-hover table-striped" id="example4">
-            <thead>
-                <th>IdNo</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Phone number</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                @foreach ($patients as $data )
-                <tr>
-                    <td>{{ $data->idNo }}</td>
-                    <td><a href="{{route('clinician.show',$data->id)}}">{{ $data->fullName() }}</a></td>
-                    <td>{{ $data->age }}</td>
-                    <td>{{ $data->phoneNumber }}</td>
-                    <td>
-                        <a href="{{route('clinician.show',$data->id)}}" class="btn btn-success">Treat</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped" id="example4">
+                <thead>
+                    <th>IdNo</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone number</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    @foreach ($patients as $data )
+                    <tr>
+                        <td>{{ $data->idNo }}</td>
+                        <td><a href="{{route('clinician.show',$data->id)}}">{{ $data->fullName() }}</a></td>
+                        <td>{{ $data->age }}</td>
+                        <td>{{ $data->phoneNumber }}</td>
+                        <td>
+                            <a href="{{route('clinician.show',$data->id)}}" class="btn btn-success">Treat</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

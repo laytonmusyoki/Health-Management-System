@@ -17,36 +17,38 @@ Queued Patients
 
 <div class="card">
     <div class="card-body">
-        <table class="table table-hover table-striped" id="example4">
-            <thead>
-                <th>IdNo</th>
-                <th>Name</th>
-                <th>Age</th> 
-                <th>Phone number</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                @foreach ($triage as $data )
-                <tr>   
-                    <td>{{ $data->idNo }}</td>
-                    <td>{{ $data->fullName() }}</td>
-                    <td>{{ $data->age }}</td>
-                    <td>{{ $data->phoneNumber }}</td>
-                    <td>
-                        <button class="btn btn-success triage-btn" 
-                            data-id="{{ $data->id }}" 
-                            data-name="{{ $data->fullName() }}" 
-                            data-age="{{ $data->age }}" 
-                            data-phone="{{ $data->phoneNumber }}"
-                            data-bs-toggle="modal" 
-                            data-bs-target="#triageModal">
-                            Triage
-                        </button>
-                    </td>
-                </tr>                    
-                @endforeach
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped" id="example4">
+                <thead>
+                    <th>IdNo</th>
+                    <th>Name</th>
+                    <th>Age</th> 
+                    <th>Phone number</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    @foreach ($triage as $data )
+                    <tr>   
+                        <td>{{ $data->idNo }}</td>
+                        <td>{{ $data->fullName() }}</td>
+                        <td>{{ $data->age }}</td>
+                        <td>{{ $data->phoneNumber }}</td>
+                        <td>
+                            <button class="btn btn-success triage-btn" 
+                                data-id="{{ $data->id }}" 
+                                data-name="{{ $data->fullName() }}" 
+                                data-age="{{ $data->age }}" 
+                                data-phone="{{ $data->phoneNumber }}"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#triageModal">
+                                Triage
+                            </button>
+                        </td>
+                    </tr>                    
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

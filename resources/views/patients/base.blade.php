@@ -23,17 +23,37 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <link rel="icon" href="{{ asset('images/hms-logo.png') }}">
     <style>
         /* Navbar Styles */
+
 .navbar {
-    background-color: #034774; /* Blue background */
-    padding: 15px 0;
-    color: white;
-    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #034774;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    padding: 1rem;
+    z-index: 50;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar.active {
+    transform: translateY(0);
+}
+
+.small-navbar{
+    display: none !important;
 }
 
 
+
+.main{
+    min-height: 100vh !important;
+}
 
 /* Logo Section */
 .logo {
@@ -78,28 +98,23 @@
 
 
 /* Navigation Links */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
 
-.nav-links li {
-    display: inline-block;
-}
 
-.nav-links a {
+
+
+ a {
     color: white;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
+    margin-left: 20px
 }
 
 .nav-links a:hover {
     color: rgb(58, 240, 2);
 }
 
-.nav-links .active {
+.navbar a .active {
     color: #4CAF50; /* Green active link */
 }
 
@@ -134,7 +149,7 @@
 .walkin-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('/images/clinic.jpg') no-repeat center center/cover;display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +166,6 @@
 }
 
 .content {
-    max-width: 600px;
     padding: 20px;
 }
 
@@ -217,10 +231,7 @@
     margin-bottom: 30px;
 }
 
-.feature {
-    text-align: center;
-    width: 120px;
-}
+
 
 .feature img {
     width: 50px;
@@ -298,11 +309,29 @@
             height: 200px;
             border-radius: 8px;
         }
+        @media (max-width:768px){
+    .navbar{
+        
+    }
+    
+    .small-active{
+        left: 0;
+        transition: all 0.6s ease;
+    }
+    .smallTset{
+        display: none;
+    }
+    .user-icon{
+        display: none;
+    }
+    
+}
+
     </style>
 </head>
 <body>
     
-    <nav class="navbar">
+    <nav class="navbar" id="scrollNavbar">
         <div class="container">
             <!-- Logo Section -->
             <div class="logo">
@@ -311,37 +340,67 @@
                     <div class="vertical"></div>
                     <div class="center-dot">+</div>
                 </div>
-                <span class="text">Health Management System</span>
+                <span class="text smallTset">Health Management System</span>
             </div>
             
     
             <!-- Navigation Links -->
-            <ul class="nav-links">
-                <li><a href="{{ route('OnlineDashboard') }}" class="{{ request()->routeIs('OnlineDashboard') ? 'active' : '' }}">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard'? 'active' : '') }}">My Dashboard</a></li>
-                <li><a href="">FAQ</a></li>
-            </ul>
+            {{-- <ul class="nav-links"> --}}
+                <div class="center">
+                    <a href="{{ route('OnlineDashboard') }}" class="{{ request()->routeIs('OnlineDashboard') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard'? 'active' : '') }}">My Dashboard</a>
+                </div>
+            {{-- </ul> --}}
     
             <!-- User Login -->
             <div class="user-section">
-                <span class="user-icon">👤</span>
+                <span class="user-icon"></span>
                 @if(auth()->check())
-                    <a href="{{ route('logout') }}">Log Out</a>
+                    <a href="{{ route('logout') }}">👤 Log Out</a>
                 @else
-                    <a href="{{ route('login') }}">Log In</a>
+                    <a href="{{ route('login') }}">👤 Log In</a>
                 @endif
             </div>
             
         </div>
     </nav>
-    
-    <main>
-        @yield('content')
-    </main>
 
+    <div class="small-navbar">
+
+    </div>
     
+    <div class="main">
+        @yield('content')
+    </div>
+
+
+    <div class="footer p-3" style="background: #034774; color: white; display: flex; align-items: center; justify-content: center;">
+        <p class="text-center">&copy; {{ config('app.name') }} 
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+        </p>
+    </div>
 
     <script src="{{ asset('onlinepatients/app.js') }}"></script>
+
+    <script>
+        const navbar = document.getElementById("scrollNavbar");
+        let lastScrollY = 0;
+
+        window.addEventListener("scroll", () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 50) {
+                navbar.classList.add("active");
+                navbar.classList.remove("hidden");
+            } else {
+                navbar.classList.remove("active");
+                navbar.classList.add("hidden");
+            }
+
+            lastScrollY = currentScrollY;
+        });
+    </script>
 </body>
 </html>

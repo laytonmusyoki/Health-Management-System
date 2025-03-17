@@ -129,36 +129,38 @@
         <h5 class="mb-0">Restock History</h5>
     </div>
     <div class="card-body">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Drug Name</th>
-                    <th>Type</th>
-                    <th>Batch Number</th>
-                    <th>Supplier</th>
-                    <th>Bottles Added</th>
-                    <th>Quantity (mL)</th>
-                    <th>Tablets Added</th>
-                    <th>Expiry Date</th>
-                    <th>Restocked At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($restocks as $restock)
-                <tr>
-                    <td>{{ $restock->drug->name }}</td>
-                    <td>{{ ucfirst($restock->drug->drug_type) }}</td>
-                    <td>{{ $restock->batch_number }}</td>
-                    <td>{{ $restock->supplier }}</td>
-                    <td>{{ $restock->bottles_added ?: '-' }}</td>
-                    <td>{{ $restock->quantity_mL ? $restock->quantity_mL . ' mL' : '-' }}</td>
-                    <td>{{ $restock->tablets_added ?: '-' }}</td>
-                    <td>{{ \Carbon\Carbon::parse($restock->expiry_date)->format('d M, Y') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($restock->created_at)->diffForHumans() }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Drug Name</th>
+                        <th>Type</th>
+                        <th>Batch Number</th>
+                        <th>Supplier</th>
+                        <th>Bottles Added</th>
+                        <th>Quantity (mL)</th>
+                        <th>Tablets Added</th>
+                        <th>Expiry Date</th>
+                        <th>Restocked At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($restocks as $restock)
+                    <tr>
+                        <td>{{ $restock->drug->name }}</td>
+                        <td>{{ ucfirst($restock->drug->drug_type) }}</td>
+                        <td>{{ $restock->batch_number }}</td>
+                        <td>{{ $restock->supplier }}</td>
+                        <td>{{ $restock->bottles_added ?: '-' }}</td>
+                        <td>{{ $restock->quantity_mL ? $restock->quantity_mL . ' mL' : '-' }}</td>
+                        <td>{{ $restock->tablets_added ?: '-' }}</td>
+                        <td>{{ \Carbon\Carbon::parse($restock->expiry_date)->format('d M, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($restock->created_at)->diffForHumans() }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

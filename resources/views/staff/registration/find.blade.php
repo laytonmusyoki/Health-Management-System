@@ -15,32 +15,34 @@
 
 <div class="card">
     <div class="card-body">
-        <table class="table table-hover table-striped" id="example4">
-            <thead>
-                <th>IdNo</th>
-                <th>Name</th>
-                <th>Age</th> 
-                <th>Phone number</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                @foreach ($patients as $patient )
-            <tr data-patient="{{ $patient->idNo }} {{ $patient->fullName() }} {{ $patient->phoneNumber }} {{ $patient->age }}">   
-                    <td>{{ $patient->idNo }}</td>
-                    <td>{{ $patient->fullName() }}</td>
-                    <td>{{ $patient->age }}</td>
-                    <td>{{ $patient->phoneNumber }}</td>
-                    <td>
-                        @if($patient->status=="Registered")
-                        <a href="{{ route('registerQueue',$patient->id) }}" class="btn btn-success">Queue Patient</a>
-                        @else
-                        <a class="btn btn-primary">{{ $patient->status }}</a>
-                        @endif
-                    </td>
-                </tr>                    
-                @endforeach
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped" id="example4">
+                <thead>
+                    <th>IdNo</th>
+                    <th>Name</th>
+                    <th>Age</th> 
+                    <th>Phone number</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    @foreach ($patients as $patient )
+                <tr data-patient="{{ $patient->idNo }} {{ $patient->fullName() }} {{ $patient->phoneNumber }} {{ $patient->age }}">   
+                        <td>{{ $patient->idNo }}</td>
+                        <td>{{ $patient->fullName() }}</td>
+                        <td>{{ $patient->age }}</td>
+                        <td>{{ $patient->phoneNumber }}</td>
+                        <td>
+                            @if($patient->status=="Registered")
+                            <a href="{{ route('registerQueue',$patient->id) }}" class="btn btn-success">Queue Patient</a>
+                            @else
+                            <a class="btn btn-primary">{{ $patient->status }}</a>
+                            @endif
+                        </td>
+                    </tr>                    
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
