@@ -83,7 +83,7 @@ class AppointmentController extends Controller
                 return redirect(route('clinician.appointments.index'))->with('success','Status for '.$appointment->patientName.' updated successfully' );
             }
             catch(Exception $e){
-                return redirect(route('clinician.appointments.index'))->with('error','Unavailable intrenet');
+                return redirect(route('clinician.appointments.index'))->with('error','Unavailable internet');
             }
             finally{
                 $appointment->status = $request->status;
