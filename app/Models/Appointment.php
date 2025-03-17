@@ -18,4 +18,10 @@ class Appointment extends Model
         'reason',
         'status',
     ];
+
+
+
+    public function doctor(){
+        return $this->belongsTo(User::class,'doctor_id');
+    }
 }

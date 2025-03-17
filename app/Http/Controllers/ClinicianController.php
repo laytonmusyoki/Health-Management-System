@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clinician;
+use App\Models\Drugs;
 use App\Models\Lab;
 use App\Models\registration;
+use App\Models\Stock;
 use App\Models\Triage;
 use Illuminate\Http\Request;
 
@@ -44,10 +46,15 @@ class ClinicianController extends Controller
             $patient->status = 'PharmacyQueue';
             $patient->save();
             $patientExist = Clinician::where('patient_id',$request->patient_id)->first();
+            $labtest = Lab::where('patient_id',$request->patient_id)->first();
             if($patientExist){
                 $patientExist->signs = $request->signs;
                 $patientExist->disease = $request->disease;
                 $patientExist->medicine = $request->medicine;
+                if(!empty( $labtest )){
+                    $labtest->results = 'null';
+                    $labtest->save();
+                }
                 $patientExist->save();
                 return redirect(route('clinician.index'))->with('success','Patient treated successfully');
             }
@@ -56,6 +63,8 @@ class ClinicianController extends Controller
             $record->signs = $request->signs;
             $record->disease = $request->disease;
             $record->medicine = $request->medicine;
+            $labtest->results = 'null';
+            $labtest->save();
             $record->save();
             return redirect(route('clinician.index'))->with('success','Patient treated successfully');
         }
@@ -66,10 +75,11 @@ class ClinicianController extends Controller
      */
     public function show( $id)
     {
+        $drugs = Drugs::all();
         $patient = Triage::where( 'patient_id',$id )->first();
         $labResult = $patient->patient_id;
         $result = Lab::where('patient_id',$labResult)->first();
-        return view("staff.clinician.show",compact("patient","result"));
+        return view("staff.clinician.show",compact("patient","result",'drugs'));
 
     }
 

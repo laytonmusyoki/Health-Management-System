@@ -119,7 +119,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::post('/loginpost',[AuthController::class,'loginpost'])->name('loginpost');
 // });
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+    Route::get('/dashboard',[PatientController::class,'index'])->name('dashboard');
 });
 
 Route::get('/forgot',[AuthController::class,'forgot'])->name('forgot');
@@ -134,5 +134,8 @@ Route::post('/reset/{token}',[AuthController::class,'reset'])->name('reset');
 
 // Online patients Routes
 Route::get('/',[WebController::class,'landingPage'])->name('OnlineDashboard');
-Route::get('/appointments',[WebController::class,'appointments'])->name('appointments');
+Route::group(['middleware'=>'authCheck'],function(){
+    Route::get('/appointments',[WebController::class,'appointments'])->name('appointments');
+});
+
 Route::post('/appointments/post',[WebController::class,'appointmentsPost'])->name('appointmentsPost');

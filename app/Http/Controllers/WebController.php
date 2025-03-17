@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AppointmentMail;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Mail;
 
 
 class WebController extends Controller
@@ -32,34 +34,28 @@ class WebController extends Controller
     
         
         if($data){
-            Appointment::create($data);
-            return redirect()->back()->with('success','Appointment booked successfully');
+            $mailData=[
+                'doctor'=> $data['doctorName'],
+                'time'=> $data['time'],
+                'date'=> $data['date']
+            ];
+            try{
+                Mail::to($data['email'])->send(new AppointmentMail($mailData));
+                return redirect()->route('dashboard')->with('success','Appointment booked successfully');
+            }
+            catch(\Exception $e){
+                return redirect()->back()->with('error','Please try again');
+            }
+            finally{
+                Appointment::create($data);
+            }
+            
         
         }
         else{
             return redirect()->back()->with('error','Appointment not booked');
         }
-        // dd($appointment);
-        // $appointment->save();
-
-        // send email to the doctor
-        // $doctor = User::where('name',$data['doctorName'])->first();
-        // $email = $doctor->email;
-        // $details = [
-        //     'title' => 'Appointment',
-        //     'body' => 'You have an appointment with '.$data['patientName'].' on '.$data['date'].' at '.$data['time']
-        // ];  
-        // \Mail::to($email)->send(new \App\Mail\AppointmentMail($details));
-
-        // //send email to the patient
-
-        // $details = [
-        //     'title' => 'Appointment',
-        //     'body' => 'You have an appointment with '.$data['doctorName'].' on '.$data['date'].' at '.$data['time'],'Wait for the approvement of the appointment'
-        // ];
-        // \Mail::to($data['email'])->send(new \App\Mail\AppointmentMail($details));   
-
-        // return redirect()->route('dashboard');
+        
     }
     
     public function landingPage(){

@@ -33,13 +33,7 @@
     font-family: Arial, sans-serif;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+
 
 /* Logo Section */
 .logo {
@@ -291,12 +285,7 @@
             margin:20px 10px;
             padding: 20px 10px;
         }
-        .doctoravailable{
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        
         .doctor-card{
             align-items: center;
             justify-content: center;
@@ -328,11 +317,10 @@
     
             <!-- Navigation Links -->
             <ul class="nav-links">
-                <li><a href="" class="active">Home</a></li>
+                <li><a href="{{ route('OnlineDashboard') }}" class="{{ request()->routeIs('OnlineDashboard') ? 'active' : '' }}">Home</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Services</a></li>
+                <li><a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard'? 'active' : '') }}">My Dashboard</a></li>
                 <li><a href="">FAQ</a></li>
-                <li><a href="">Contact</a></li>
             </ul>
     
             <!-- User Login -->

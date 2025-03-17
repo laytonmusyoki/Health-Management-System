@@ -36,7 +36,7 @@
             "permission":"Pharmacy",
             "route":"pharmacy.index",
             "name":"Pharmacy",
-            "image":"clinician.png",
+            "image":"pharmacy.png",
             "url":"patient/queue",
             "queue":"PharmacyQueue"
         },
@@ -84,7 +84,7 @@
             "permission":"Procedure Room",
             "route":"procedure.index",
             "name":"Procedure Room",
-            "image":"ward.png",
+            "image":"procedure.png",
             "url":"patient/queue",
             "queue":"ProcedureQueue"
         }

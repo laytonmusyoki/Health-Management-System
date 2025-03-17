@@ -52,18 +52,16 @@
     </div>
 </div>
 <h3 class="text-center">Available Doctors</h3>
-<div class="doctoravailable">
-    <div class="card-row">
+<div class="container">
+    <div class="row">
         @foreach ($doctors as $clinician)
-        <div class="card-col">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="card">
-            
-                <div class="doctor-card"><div class="image"> <img src="{{ asset('images/clinician.png') }}" style="width:50px; height:50px" alt="Doctor Image"></div>
+                <div class="card-body"><div class="image"> <img src="{{ asset('images/clinician.png') }}" style="width:50px; height:50px" alt="Doctor Image"></div>
                 <h5 class="card-title">{{ $clinician->name }}</h5>
                     <p class="card-text">{{ $clinician->speciality }}</p>
                     <p class="card-text">{{ $clinician->phone }}</p>
-                    <p class="card-text">{{ $clinician->email }}</p>   
-                    {{-- Button to trigger popup --}}
+                    <p class="card-text">{{ $clinician->email }}</p>  
                     <button class="btn btn-primary" onclick="openModal({{ $clinician->id }}, '{{ $clinician->name }}')">
                         Book Appointment
                     </button>
