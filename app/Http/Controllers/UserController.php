@@ -121,6 +121,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->username,
             'email' => $request->email,
+            'role'=> 'staff',
         ]);
 
         $user->syncRoles([$request->role]);
