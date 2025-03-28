@@ -50,7 +50,8 @@ body {
 }
 .about h2{
     text-align: left;
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: bold;
 }
 .about p{
     text-align: left;

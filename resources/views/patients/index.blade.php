@@ -21,7 +21,7 @@
             <a href="{{route('appointments')}}" class="btn btn-primary" style="float: right; margin: 10px;;">Make Appointment</a>
 
                 <h5 class="card-title">My Appointments</h5>
-                <table class="table">
+                <table class="table" id="example2">
                     <thead>
                         <tr>
                             <th>Doctor</th>

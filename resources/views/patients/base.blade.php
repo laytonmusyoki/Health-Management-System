@@ -92,7 +92,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    color: turquoise
+    color: turquoise;
     border-radius: 50%;
 }
 
@@ -107,7 +107,7 @@
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 .nav-links a:hover {
@@ -354,7 +354,7 @@
     
             <!-- User Login -->
             <div class="user-section">
-                <span class="user-icon"></span>
+                <span class="user-icon">👤</span>
                 @if(auth()->check())
                     <a href="{{ route('logout') }}">👤 Log Out</a>
                 @else

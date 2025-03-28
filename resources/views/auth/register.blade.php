@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
     <link rel="stylesheet" href="{{ asset('auth/style.css') }}">
+    <link rel="icon" href="{{ asset('images/hms-logo.png') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -16,8 +17,8 @@
                 <!-- This will be hidden on small screens -->
                 <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-center p-5">
                     <div class="about">
-                        <h2>About Our Health Management System</h2>
-                        <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
+                        <h2>Join Our Health Management System Today!</h2>
+                        <p>Join us today by creating your account. Simply enter your details, set a secure password, and get started. With your account, you can access personalized features, manage your profile, and stay connected. Sign up now and experience seamless access to our services!</p>
                         <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
                     </div>
                 </div>
