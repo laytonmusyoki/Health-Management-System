@@ -51,7 +51,7 @@
         {
             "permission":"Drug Prescription",
             "route":"drugs.index",
-            "name":"Drug Prescription",
+            "name":"Drugs",
             "image":"pills.png",
             "url":"patient/queue",
             "queue":"DrugsQueue"
