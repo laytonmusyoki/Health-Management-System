@@ -17,7 +17,7 @@
                 <!-- This will be hidden on small screens -->
                 <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-center p-5 bg-light">
                     <div class="about">
-                    <h2>Welcome to Our Health Management System</h2>
+                    <h2>Welcome to Our EHR-System</h2>
                     <p>Access your account by entering your email and password. Stay connected and enjoy seamless access to your personalized dashboard. Forgot your password? Reset it easily. Log in now and continue exploring the features designed just for you!.</p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
 
