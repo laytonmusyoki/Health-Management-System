@@ -17,12 +17,11 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        if(User::role('Super Admin')){
-            $appointments = Appointment::all();
-        }
-       else{
-        $appointments = Appointment::where('doctor_id', auth()->user()->id)->get();
-       }
+    if (auth()->check() && auth()->user()->hasRole('Super Admin')) {
+        $appointments = Appointment::all();
+    } else {
+        $appointments = Appointment::where('doctor_id', auth()->id())->get();
+    }
         return view("staff.appointments.index",compact("appointments"));
     }
 

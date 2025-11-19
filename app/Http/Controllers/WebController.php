@@ -15,6 +15,13 @@ class WebController extends Controller
     public function appointments(){
         // fetch from user where role clinician
         $doctors = User::role('Clinician')->get();
+        // Only include clinicians that have 2 or fewer pending appointments
+        $doctors = User::role('Clinician')
+        ->whereHas('appointments', function($q){
+            $q->where('status', 'pending');
+        }, '<', 10)
+        ->get();
+
        
         return view('patients.bookappointment',compact('doctors'));
        
