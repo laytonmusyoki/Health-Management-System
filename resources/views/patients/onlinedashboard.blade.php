@@ -35,7 +35,7 @@
 <div class="walkin-container">
     <div class="overlay">
         <div class="content text-center">
-            <h1 class="fw-bold health" style="color:rgb(7, 7, 116)">Health Management System Appointment</h1>
+            <h1 class="fw-bold health" style="color:rgb(7, 7, 116)">Electrical Health Records Appointments</h1>
             <p class="subtitle text-uppercase p" style="color:rgb(7, 7, 116)">For Adults & Children</p>
             <p class="hours">
                 <strong>Monday - Saturday:</strong> 7:00am – 7:30pm <br>
@@ -50,7 +50,7 @@
 <div class="container text-center py-5">
     <h2 class="fw-bold text-primary">About Us</h2>
     <p class="about text-center">
-        Welcome to our Health Management System (HMS), a comprehensive platform designed to streamline healthcare operations and improve patient care. 
+        Welcome to our Electrical Health Records System (EHR), a comprehensive platform designed to streamline healthcare operations and improve patient care. 
         Our system enables healthcare providers to efficiently manage patient records, appointments, billing, and medical history, ensuring a seamless workflow and data security.
         With user-friendly features and robust security, HMS enhances efficiency in hospitals, clinics, and other healthcare facilities.
     </p>

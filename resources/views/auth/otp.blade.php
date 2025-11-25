@@ -17,8 +17,8 @@
                 <!-- This will be hidden on small screens -->
                 <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-center p-5 bg-light">
                     <div class="about">
-                    <h2>About Our Health Management System</h2>
-                    <p>Our Health Management System provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
+                    <h2>About Our EHR-System</h2>
+                    <p>Our EHR EHR-Systemem provides seamless healthcare solutions, allowing users to book appointments, access medical records, and connect with healthcare professionals.</p>
                     <img src="{{ asset('auth/images/onlinedoctor.jpeg') }}" alt="Healthcare Overview" class="img-fluid">
 
                     </div>

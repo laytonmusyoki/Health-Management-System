@@ -340,7 +340,7 @@
                     <div class="vertical"></div>
                     <div class="center-dot">+</div>
                 </div>
-                <span class="text smallTset">Health Management System</span>
+                <span class="text smallTset">EHR</span>
             </div>
             
     
